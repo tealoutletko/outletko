@@ -1,0 +1,554 @@
+/*
+ * Outletko Teal — Global Base Styles
+ * Component CSS files are each registered individually in config/theme.yml
+ * and loaded by PrestaShop's asset manager in priority order.
+ * Do NOT use @import here — PS9 smart cache does not process @import.
+ * ======================================================================= */
+
+/* =========================================================
+   GLOBAL RESETS & BASE STYLES
+   ========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-normal);
+  color: var(--ot-text-primary);
+  background-color: var(--ot-bg);
+  transition: background-color var(--duration-300) var(--ease-in-out),
+              color var(--duration-300) var(--ease-in-out);
+  overflow-x: hidden;
+}
+
+/* ---- Typography base ---- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--ot-text-primary);
+  margin-top: 0;
+}
+
+h1 { font-size: var(--text-4xl); }
+h2 { font-size: var(--text-3xl); }
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-xl); }
+h5 { font-size: var(--text-lg); }
+h6 { font-size: var(--text-base); }
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--space-4);
+  color: var(--ot-text-secondary);
+}
+
+a {
+  color: var(--ot-text-link);
+  text-decoration: none;
+  transition: color var(--duration-150) var(--ease-in-out);
+}
+
+a:hover {
+  color: var(--ot-text-link-hover);
+  text-decoration: underline;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---- Utility container ---- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* ---- Focus visible accessibility ---- */
+:focus-visible {
+  outline: 2px solid var(--ot-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ---- Selection color ---- */
+::selection {
+  background-color: var(--ot-primary-subtle);
+  color: var(--ot-primary-dark);
+}
+
+/* ---- Scrollbar styling (Webkit) ---- */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--ot-surface); }
+::-webkit-scrollbar-thumb {
+  background: var(--ot-border-strong);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--ot-text-muted); }
+
+/* ---- Skip to content (accessibility) ---- */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  background: var(--ot-primary);
+  color: var(--ot-text-inverse);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-weight: var(--fw-semibold);
+  z-index: var(--z-toast);
+  transition: top var(--duration-200);
+}
+.skip-link:focus { top: var(--space-4); }
+
+/* ---- PS9 specific overrides ---- */
+#wrapper { padding-top: 0 !important; }
+#main { padding-bottom: var(--space-8); }
+
+.page-content,
+.page-header {
+  background: var(--ot-bg);
+}
+
+/* ---- Breadcrumb overrides ---- */
+.breadcrumb {
+  background: transparent;
+  padding: var(--space-3) 0;
+  margin: 0;
+  font-size: var(--text-sm);
+}
+
+.breadcrumb-item a {
+  color: var(--ot-text-secondary);
+}
+
+.breadcrumb-item a:hover {
+  color: var(--ot-primary);
+  text-decoration: none;
+}
+
+.breadcrumb-item.active {
+  color: var(--ot-text-muted);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: '›';
+  color: var(--ot-text-muted);
+}
+
+/* ---- Alert / Flash messages ---- */
+.alert {
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+}
+
+.alert-success {
+  background: var(--badge-novo-bg);
+  border-color: var(--badge-novo-border);
+  color: var(--badge-novo-text);
+}
+
+.alert-warning {
+  background: var(--badge-outlet-bg);
+  border-color: var(--badge-outlet-border);
+  color: var(--badge-outlet-text);
+}
+
+.alert-danger {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  color: #991b1b;
+}
+
+.alert-info {
+  background: var(--badge-obnovljeno-bg);
+  border-color: var(--badge-obnovljeno-border);
+  color: var(--badge-obnovljeno-text);
+}
+
+/* ---- Button base overrides ---- */
+.btn {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--text-sm);
+  border-radius: var(--radius-md);
+  transition: all var(--duration-200) var(--ease-in-out);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  line-height: 1;
+  padding: var(--space-2-5) var(--space-4);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--ot-primary);
+  border-color: var(--ot-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--ot-primary-dark);
+  border-color: var(--ot-primary-dark);
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn-outline-primary {
+  background: transparent;
+  border: 1px solid var(--ot-primary);
+  color: var(--ot-primary);
+}
+
+.btn-outline-primary:hover {
+  background: var(--ot-primary);
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-lg {
+  font-size: var(--text-base);
+  padding: var(--space-3) var(--space-6);
+}
+
+.btn-sm {
+  font-size: var(--text-xs);
+  padding: var(--space-1-5) var(--space-3);
+}
+
+/* ---- Form controls ---- */
+.form-control,
+.form-select {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--ot-text-primary);
+  background-color: var(--ot-bg);
+  border: 1px solid var(--ot-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2-5) var(--space-3);
+  transition: border-color var(--duration-150) var(--ease-in-out),
+              box-shadow var(--duration-150) var(--ease-in-out);
+  width: 100%;
+}
+
+.form-control:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--ot-primary);
+  box-shadow: var(--shadow-focus);
+  background-color: var(--ot-bg);
+}
+
+.form-label {
+  font-size: var(--text-sm);
+  font-weight: var(--fw-medium);
+  color: var(--ot-text-secondary);
+  margin-bottom: var(--space-1-5);
+  display: block;
+}
+
+/* ---- Pagination ---- */
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  flex-wrap: wrap;
+}
+
+.page-item .page-link {
+  font-size: var(--text-sm);
+  font-weight: var(--fw-medium);
+  color: var(--ot-text-secondary);
+  background: var(--ot-surface);
+  border: 1px solid var(--ot-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  min-width: 36px;
+  text-align: center;
+  transition: all var(--duration-150) var(--ease-in-out);
+}
+
+.page-item.active .page-link,
+.page-item .page-link:hover {
+  background: var(--ot-primary);
+  border-color: var(--ot-primary);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ---- Dark mode toggle button ---- */
+.ot-dark-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--ot-border);
+  background: var(--ot-surface);
+  color: var(--ot-text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--duration-200) var(--ease-in-out);
+  flex-shrink: 0;
+}
+
+.ot-dark-toggle:hover {
+  border-color: var(--ot-primary);
+  color: var(--ot-primary);
+  background: var(--ot-primary-subtle);
+}
+
+/* ---- Trust bar ---- */
+.ot-trust-bar {
+  background: var(--ot-surface);
+  border-top: 1px solid var(--ot-border);
+  padding: var(--space-5) 0;
+}
+
+.ot-trust-bar__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.ot-trust-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-align: left;
+}
+
+.ot-trust-item__icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  background: var(--ot-primary-subtle);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ot-primary);
+}
+
+.ot-trust-item__label {
+  font-size: var(--text-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--ot-text-primary);
+  line-height: 1.2;
+}
+
+.ot-trust-item__sub {
+  font-size: var(--text-xs);
+  color: var(--ot-text-muted);
+  margin-top: 2px;
+}
+
+/* ---- Section headings ---- */
+.ot-section-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: var(--fw-bold);
+  color: var(--ot-text-primary);
+  letter-spacing: var(--ls-tight);
+  margin-bottom: var(--space-6);
+}
+
+.ot-section-title--underline::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--ot-primary);
+  border-radius: var(--radius-full);
+  margin-top: var(--space-3);
+}
+
+/* ---- No scrollbar utility ---- */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* ---- Screen-reader only ---- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =========================================================
+   CUSTOM BREADCRUMB (our tpl override)
+   ========================================================= */
+.ot-breadcrumb-wrap { background: var(--ot-surface); border-bottom: 1px solid var(--ot-border); }
+.ot-breadcrumb { display: flex; align-items: center; gap: var(--space-1-5); flex-wrap: wrap; list-style: none; margin: 0; padding: var(--space-3) 0; }
+.ot-breadcrumb__item { display: flex; align-items: center; gap: var(--space-1-5); font-size: var(--text-xs); }
+.ot-breadcrumb__link { color: var(--ot-text-muted); text-decoration: none; transition: color var(--duration-150); }
+.ot-breadcrumb__link:hover { color: var(--ot-primary); text-decoration: none; }
+.ot-breadcrumb__current { color: var(--ot-text-secondary); font-weight: var(--fw-medium); }
+.ot-breadcrumb__sep { color: var(--ot-border-strong); }
+
+/* Filter chip styles moved to badges.css */
+
+/* =========================================================
+   MOBILE BOTTOM NAV
+   ========================================================= */
+.ot-bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--bottom-nav-h);
+  background: var(--ot-bg);
+  border-top: 1px solid var(--ot-border);
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+  z-index: var(--z-sticky);
+  padding-bottom: env(safe-area-inset-bottom);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.ot-bottom-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  text-decoration: none;
+  color: var(--ot-text-muted);
+  font-size: 10px;
+  font-weight: var(--fw-medium);
+  padding: var(--space-2) 0;
+  transition: color var(--duration-150);
+  position: relative;
+}
+
+.ot-bottom-nav__item:hover,
+.ot-bottom-nav__item.is-active {
+  color: var(--ot-primary);
+  text-decoration: none;
+}
+
+.ot-bottom-nav__item.is-active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 2px;
+  background: var(--ot-primary);
+  border-radius: var(--radius-full);
+}
+
+.ot-bottom-nav__icon { position: relative; }
+.ot-bottom-nav__label { font-size: 10px; line-height: 1; }
+
+@media (min-width: 768px) {
+  .ot-bottom-nav { display: none; }
+}
+
+@media (max-width: 767px) {
+  .ot-bottom-nav { display: grid; }
+  body { padding-bottom: var(--bottom-nav-h); }
+}
+
+/* =========================================================
+   BACK TO TOP BUTTON
+   ========================================================= */
+.ot-back-top {
+  position: fixed;
+  bottom: calc(var(--bottom-nav-h) + var(--space-4));
+  right: var(--space-4);
+  width: 44px;
+  height: 44px;
+  background: var(--ot-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: all var(--duration-300) var(--ease-out);
+  z-index: calc(var(--z-sticky) - 1);
+}
+
+.ot-back-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.ot-back-top:hover { background: var(--ot-primary-dark); transform: translateY(-2px); }
+
+@media (min-width: 768px) {
+  .ot-back-top { bottom: var(--space-6); }
+}
+
+/* Font face declarations moved to variables.css */
+
+/* =========================================================
+   PS9 HUMMINGBIRD INTEGRATION OVERRIDES
+   Ensure child theme styles take precedence
+   ========================================================= */
+
+/* Override Hummingbird's default product grid to use our card styles */
+#products .product-miniature { height: 100%; }
+#products .card { border: none; box-shadow: none; background: transparent; padding: 0; }
+
+/* Ensure PS9 faceted search renders cleanly inside our sidebar */
+#search_filters .facet { margin: 0; padding: 0; border: none; }
+#search_filters .h6, #search_filters .facet-title { display: none; } /* We use our own toggle */
+#search_filters .custom-checkbox { margin: 0; }
+
+/* Override PS9 default pagination */
+.pagination .page-item:first-child .page-link,
+.pagination .page-item:last-child .page-link { border-radius: var(--radius-md); }
+
+/* Responsive utility */
+@media (max-width: 991px) {
+  h1 { font-size: var(--text-3xl); }
+  h2 { font-size: var(--text-2xl); }
+}
+
+@media (max-width: 575px) {
+  h1 { font-size: var(--text-2xl); }
+  h2 { font-size: var(--text-xl); }
+  .container { padding-inline: var(--space-4); }
+}

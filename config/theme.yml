@@ -1,0 +1,143 @@
+name: outletko-teal
+display_name: "Outletko Teal - Modern IT Store"
+version: "1.0.0"
+author: "TEAL d.o.o."
+email: "info@teal.si"
+url: "https://outletko.si"
+description: "Modern PrestaShop 9 Hummingbird child theme for outletko.si - premium IT hardware ecommerce with Dell/Lenovo inspired design."
+license: "AFL 3.0"
+
+# Inherit everything from Hummingbird (PS9 default theme)
+parent: hummingbird
+
+assets:
+  use_parent_assets: true
+  css:
+    all:
+      - id: outletko-variables
+        path: assets/css/variables.css
+        media: all
+        priority: 5
+      - id: outletko-badges
+        path: assets/css/components/badges.css
+        media: all
+        priority: 10
+      - id: outletko-header
+        path: assets/css/components/header.css
+        media: all
+        priority: 11
+      - id: outletko-navigation
+        path: assets/css/components/navigation.css
+        media: all
+        priority: 12
+      - id: outletko-search
+        path: assets/css/components/search.css
+        media: all
+        priority: 13
+      - id: outletko-filters
+        path: assets/css/components/filters.css
+        media: all
+        priority: 14
+      - id: outletko-product-card
+        path: assets/css/components/product-card.css
+        media: all
+        priority: 15
+      - id: outletko-category-listing
+        path: assets/css/components/category-listing.css
+        media: all
+        priority: 16
+      - id: outletko-product-detail
+        path: assets/css/components/product-detail.css
+        media: all
+        priority: 17
+      - id: outletko-cart
+        path: assets/css/components/cart.css
+        media: all
+        priority: 18
+      - id: outletko-checkout
+        path: assets/css/components/checkout.css
+        media: all
+        priority: 19
+      - id: outletko-footer
+        path: assets/css/components/footer.css
+        media: all
+        priority: 20
+      - id: outletko-custom
+        path: assets/css/custom.css
+        media: all
+        priority: 100
+  js:
+    bottom:
+      - id: outletko-theme
+        path: assets/js/theme.js
+        priority: 10
+        server: remote
+      - id: outletko-search-ac
+        path: assets/js/search-autocomplete.js
+        priority: 20
+        server: remote
+      - id: outletko-filters-js
+        path: assets/js/filter-enhancements.js
+        priority: 30
+        server: remote
+
+global_settings:
+  configuration:
+    PS_QUICK_VIEW: 0
+    PS_PRODUCTS_PER_PAGE: 12
+
+theme_settings:
+  default_layout: layout-full-width
+  layouts:
+    category: layout-left-column
+
+meta:
+  - page: index
+    title: "Outletko.si - Rabljena in obnovljena IT oprema | TEAL d.o.o."
+    description: "Kupite novo, obnovljeno in rabljeno IT opremo po dostopnih cenah. Prenosniki, računalniki, zasloni, tiskalniki in več. TEAL d.o.o., Laško in Celje."
+    keywords: "prenosniki, računalniki, obnovljeni prenosniki, rabljeni računalniki, outlet it oprema, celje, laško"
+  - page: product
+    title: ""
+    description: ""
+    keywords: ""
+  - page: category
+    title: ""
+    description: ""
+    keywords: ""
+  - page: search
+    title: "Iskanje - Outletko.si"
+    description: ""
+    keywords: ""
+  - page: stores
+    title: "Naše trgovine - Laško in Celje | TEAL d.o.o."
+    description: "Obiščite nas v naši fizični trgovini v Laškem ali Celju. Oglejte si IT opremo, prevzemite naročilo ali se posvetujte z našimi strokovnjaki."
+    keywords: "outletko trgovina laško celje teal"
+
+layouts:
+  index: layout-full-width
+  product: layout-full-width
+  category: layout-left-column
+  best-sales: layout-full-width
+  new-products: layout-full-width
+  prices-drop: layout-full-width
+  module-ps_featuredproducts-index: layout-full-width
+  pagenotfound: layout-full-width
+  contact: layout-full-width
+  sitemap: layout-full-width
+  stores: layout-full-width
+  authentication: layout-full-width
+  cart: layout-full-width
+  order: layout-full-width
+  order-confirmation: layout-full-width
+  my-account: layout-full-width
+  address: layout-full-width
+  addresses: layout-full-width
+  guest-tracking: layout-full-width
+  history: layout-full-width
+  identity: layout-full-width
+  order-detail: layout-full-width
+  order-follow: layout-full-width
+  order-return: layout-full-width
+  order-slip: layout-full-width
+  search: layout-full-width
+  module-ps_emailsubscription-verification: layout-full-width

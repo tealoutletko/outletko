@@ -1,0 +1,332 @@
+/*
+ * Outletko Teal — Footer Component
+ * 4-column grid, trust badges, newsletter
+ * ========================================= */
+
+/* =========================================================
+   FOOTER WRAPPER
+   ========================================================= */
+.ot-footer {
+  background: #0d1117;
+  color: #8b949e;
+  margin-top: var(--space-16);
+}
+
+/* =========================================================
+   FOOTER MAIN
+   ========================================================= */
+.ot-footer__main {
+  padding: var(--space-12) 0 var(--space-8);
+  border-bottom: 1px solid #21262d;
+}
+
+.ot-footer__grid {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(3, 1fr);
+  gap: var(--space-8);
+}
+
+/* ---- Brand column ---- */
+.ot-footer__brand {}
+
+.ot-footer__logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  margin-bottom: var(--space-4);
+}
+
+.ot-footer__logo-text {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--fw-extrabold);
+  color: #e6edf3;
+  letter-spacing: var(--ls-tight);
+}
+
+.ot-footer__logo-text span { color: var(--ot-primary-light); }
+
+.ot-footer__tagline {
+  font-size: var(--text-sm);
+  color: #6e7681;
+  line-height: var(--lh-relaxed);
+  margin-bottom: var(--space-5);
+  max-width: 280px;
+}
+
+/* ---- Store locations ---- */
+.ot-footer__stores {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.ot-footer__store {
+  display: flex;
+  gap: var(--space-2-5);
+  align-items: flex-start;
+}
+
+.ot-footer__store-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--ot-primary-light);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ot-footer__store-info {}
+
+.ot-footer__store-name {
+  font-size: var(--text-sm);
+  font-weight: var(--fw-semibold);
+  color: #c9d1d9;
+  display: block;
+}
+
+.ot-footer__store-addr {
+  font-size: var(--text-xs);
+  color: #6e7681;
+}
+
+/* ---- Link columns ---- */
+.ot-footer__col-title {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: var(--fw-semibold);
+  color: #e6edf3;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid #21262d;
+}
+
+.ot-footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2-5);
+}
+
+.ot-footer__link {
+  font-size: var(--text-sm);
+  color: #6e7681;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: color var(--duration-150);
+}
+
+.ot-footer__link:hover {
+  color: #e6edf3;
+  text-decoration: none;
+}
+
+.ot-footer__link:hover::before {
+  background: var(--ot-primary-light);
+}
+
+.ot-footer__link::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: #30363d;
+  flex-shrink: 0;
+  transition: background var(--duration-150);
+}
+
+/* ---- Condition quick links ---- */
+.ot-footer__condition-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+/* ---- Contact info ---- */
+.ot-footer__contact-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: #8b949e;
+  text-decoration: none;
+  transition: color var(--duration-150);
+  margin-bottom: var(--space-3);
+}
+
+.ot-footer__contact-item:hover {
+  color: #e6edf3;
+  text-decoration: none;
+}
+
+.ot-footer__contact-item svg {
+  width: 16px;
+  height: 16px;
+  color: var(--ot-primary-light);
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   NEWSLETTER
+   ========================================================= */
+.ot-newsletter {
+  background: linear-gradient(
+    135deg,
+    #161b22 0%,
+    #1c2128 100%
+  );
+  border-top: 1px solid #21262d;
+  border-bottom: 1px solid #21262d;
+  padding: var(--space-8) 0;
+}
+
+.ot-newsletter__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.ot-newsletter__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.ot-newsletter__title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--fw-bold);
+  color: #e6edf3;
+  margin-bottom: var(--space-1);
+}
+
+.ot-newsletter__sub {
+  font-size: var(--text-sm);
+  color: #6e7681;
+  margin: 0;
+}
+
+.ot-newsletter__form {
+  display: flex;
+  gap: var(--space-2);
+  flex: 1;
+  max-width: 440px;
+  flex-shrink: 0;
+}
+
+.ot-newsletter__input {
+  flex: 1;
+  height: 46px;
+  padding: 0 var(--space-4);
+  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  background: #21262d;
+  border: 1px solid #30363d;
+  border-radius: var(--radius-lg);
+  color: #e6edf3;
+  outline: none;
+  transition: border-color var(--duration-150), box-shadow var(--duration-150);
+}
+
+.ot-newsletter__input::placeholder { color: #484f58; }
+
+.ot-newsletter__input:focus {
+  border-color: var(--ot-primary);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+}
+
+.ot-newsletter__submit {
+  height: 46px;
+  padding: 0 var(--space-5);
+  background: var(--ot-primary);
+  border: none;
+  border-radius: var(--radius-lg);
+  color: #fff;
+  font-size: var(--text-sm);
+  font-weight: var(--fw-semibold);
+  font-family: var(--font-body);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--duration-200) var(--ease-in-out);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.ot-newsletter__submit:hover { background: var(--ot-primary-dark); }
+.ot-newsletter__submit svg { width: 16px; height: 16px; }
+
+/* =========================================================
+   FOOTER BOTTOM BAR
+   ========================================================= */
+.ot-footer__bottom {
+  padding: var(--space-5) 0;
+}
+
+.ot-footer__bottom .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.ot-footer__copyright {
+  font-size: var(--text-xs);
+  color: #484f58;
+}
+
+.ot-footer__legal {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.ot-footer__legal a {
+  font-size: var(--text-xs);
+  color: #484f58;
+  text-decoration: none;
+  transition: color var(--duration-150);
+}
+
+.ot-footer__legal a:hover { color: #8b949e; text-decoration: none; }
+
+/* ---- Payment icons ---- */
+.ot-footer__payment {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.ot-payment-icon {
+  height: 24px;
+  width: auto;
+  opacity: 0.5;
+  filter: grayscale(100%);
+  transition: opacity var(--duration-150), filter var(--duration-150);
+}
+
+.ot-payment-icon:hover { opacity: 0.8; filter: grayscale(0%); }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 1023px) {
+  .ot-footer__grid { grid-template-columns: repeat(2, 1fr); }
+  .ot-footer__brand { grid-column: 1 / -1; }
+  .ot-newsletter__inner { flex-direction: column; align-items: flex-start; gap: var(--space-5); }
+  .ot-newsletter__form { max-width: 100%; width: 100%; }
+}
+
+@media (max-width: 639px) {
+  .ot-footer__grid { grid-template-columns: 1fr; }
+  .ot-footer__brand { grid-column: auto; }
+  .ot-footer__bottom .container { flex-direction: column; align-items: center; text-align: center; }
+  .ot-newsletter__form { flex-direction: column; }
+  .ot-newsletter__submit { justify-content: center; }
+}

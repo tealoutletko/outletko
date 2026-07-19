@@ -1,0 +1,178 @@
+/*
+ * Outletko Teal — Badges Component
+ * Condition badges: Novo / Outlet / Obnovljeno / Rabljeno
+ * ======================================================= */
+
+/* ---- Base badge ---- */
+.ot-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-0-5) var(--space-2);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: var(--fw-semibold);
+  font-family: var(--font-body);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  line-height: 1.4;
+  cursor: default;
+}
+
+.ot-badge svg {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+}
+
+/* ---- Condition variants ---- */
+.ot-badge--novo {
+  background: var(--badge-novo-bg);
+  color: var(--badge-novo-text);
+  border-color: var(--badge-novo-border);
+}
+
+.ot-badge--outlet {
+  background: var(--badge-outlet-bg);
+  color: var(--badge-outlet-text);
+  border-color: var(--badge-outlet-border);
+}
+
+.ot-badge--obnovljeno {
+  background: var(--badge-obnovljeno-bg);
+  color: var(--badge-obnovljeno-text);
+  border-color: var(--badge-obnovljeno-border);
+}
+
+.ot-badge--rabljeno {
+  background: var(--badge-rabljeno-bg);
+  color: var(--badge-rabljeno-text);
+  border-color: var(--badge-rabljeno-border);
+}
+
+/* ---- Solid/pill variants (used on filter chips) ---- */
+.ot-badge--solid-novo {
+  background: var(--badge-novo-solid);
+  color: #fff;
+  border-color: transparent;
+}
+
+.ot-badge--solid-outlet {
+  background: var(--badge-outlet-solid);
+  color: #fff;
+  border-color: transparent;
+}
+
+.ot-badge--solid-obnovljeno {
+  background: var(--badge-obnovljeno-solid);
+  color: #fff;
+  border-color: transparent;
+}
+
+.ot-badge--solid-rabljeno {
+  background: var(--badge-rabljeno-solid);
+  color: #fff;
+  border-color: transparent;
+}
+
+/* ---- Sale/Discount badge ---- */
+.ot-badge--sale {
+  background: #fee2e2;
+  color: #991b1b;
+  border-color: #fca5a5;
+}
+
+.ot-badge--sale.ot-badge--solid {
+  background: var(--ot-accent);
+  color: #fff;
+  border-color: transparent;
+}
+
+/* ---- "Prihaja" / Coming Soon ---- */
+.ot-badge--soon {
+  background: #f3f4f6;
+  color: #374151;
+  border-color: #d1d5db;
+}
+
+/* ---- Promo / Special (NOVOST, AKCIJA) ---- */
+.ot-badge--promo {
+  background: #e31837;
+  color: #fff;
+  border-color: transparent;
+}
+
+/* ---- Product card position (absolute overlay) ---- */
+.ot-badge--overlay {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  z-index: var(--z-raised);
+}
+
+/* ---- Discount percent badge (top-right corner of card) ---- */
+.ot-badge--discount {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: var(--z-raised);
+  background: var(--ot-accent);
+  color: #fff;
+  border: none;
+  font-size: var(--text-xs);
+  font-weight: var(--fw-bold);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+/* ---- Active filter chips ---- */
+.ot-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1-5);
+  padding: var(--space-1-5) var(--space-3);
+  background: var(--ot-primary-subtle);
+  color: var(--ot-primary);
+  border: 1px solid var(--ot-primary-subtle-2);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+  transition: all var(--duration-150) var(--ease-in-out);
+}
+
+.ot-filter-chip:hover {
+  background: var(--ot-primary);
+  color: #fff;
+  border-color: var(--ot-primary);
+}
+
+.ot-filter-chip__remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+  background: currentColor;
+  color: var(--ot-primary-subtle);
+  transition: transform var(--duration-150) var(--ease-in-out);
+  flex-shrink: 0;
+}
+
+.ot-filter-chip:hover .ot-filter-chip__remove {
+  background: rgba(255,255,255,0.3);
+  color: #fff;
+}
+
+.ot-filter-chip__remove svg {
+  width: 8px;
+  height: 8px;
+  fill: currentColor;
+}
+
+.ot-filter-chip:hover .ot-filter-chip__remove {
+  transform: rotate(90deg);
+}
