@@ -391,6 +391,7 @@
    ================================================================ *}
 {block name='head' append}
 <style>
+{literal}
 /* ---- Hero ---- */
 .ot-hero { background: linear-gradient(135deg,#0d1117 0%,#1a2744 60%,#0d2247 100%); color:#fff; padding: 80px 0 60px; overflow:hidden; position:relative; }
 .ot-hero__bg { position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(0,102,204,0.15) 0%,transparent 60%),radial-gradient(circle at 80% 20%,rgba(0,102,204,0.08) 0%,transparent 50%);pointer-events:none; }
@@ -457,5 +458,6 @@
 /* ---- Responsive ---- */
 @media (max-width:1023px) { .ot-hero__content{grid-template-columns:1fr;gap:40px} .ot-hero__visual{display:none} .ot-cat-icon-grid{grid-template-columns:repeat(2,1fr)} .ot-condition-strip__grid{grid-template-columns:repeat(2,1fr)} }
 @media (max-width:767px) { .ot-hero{padding:48px 0 40px} .ot-cat-icon-grid{grid-template-columns:1fr} .ot-condition-strip__grid{grid-template-columns:1fr} .ot-hero__stats{display:none} }
+{/literal}
 </style>
 {/block}

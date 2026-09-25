@@ -9,8 +9,8 @@
 /* =========================================================
    UTILITY FUNCTIONS
    ========================================================= */
-const $ = (sel, ctx = document) => ctx.querySelector(sel);
-const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
+const ot$ = (sel, ctx = document) => ctx.querySelector(sel);
+const ot$$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 const on = (el, evt, fn, opts) => el && el.addEventListener(evt, fn, opts);
 const off = (el, evt, fn) => el && el.removeEventListener(evt, fn);
 
@@ -40,7 +40,7 @@ const DarkMode = {
 
     if (isDark) document.documentElement.classList.add('dark-mode');
 
-    $$('[data-ot-dark-toggle]').forEach(btn => {
+    ot$$('[data-ot-dark-toggle]').forEach(btn => {
       this._updateBtn(btn, isDark);
       on(btn, 'click', () => this.toggle());
     });
@@ -56,12 +56,12 @@ const DarkMode = {
   toggle() {
     const isDark = document.documentElement.classList.toggle('dark-mode');
     localStorage.setItem(this.STORAGE_KEY, isDark ? '1' : '0');
-    $$('[data-ot-dark-toggle]').forEach(btn => this._updateBtn(btn, isDark));
+    ot$$('[data-ot-dark-toggle]').forEach(btn => this._updateBtn(btn, isDark));
   },
 
   _apply(isDark) {
     document.documentElement.classList.toggle('dark-mode', isDark);
-    $$('[data-ot-dark-toggle]').forEach(btn => this._updateBtn(btn, isDark));
+    ot$$('[data-ot-dark-toggle]').forEach(btn => this._updateBtn(btn, isDark));
   },
 
   _updateBtn(btn, isDark) {
@@ -79,7 +79,7 @@ const DarkMode = {
    ========================================================= */
 const StickyHeader = {
   init() {
-    const header = $('[data-ot-header]');
+    const header = ot$('[data-ot-header]');
     if (!header) return;
 
     const onScroll = throttle(() => {
@@ -102,8 +102,8 @@ const MobileDrawer = {
   lastFocus: null,
 
   init() {
-    this.drawer  = $('[data-ot-drawer]');
-    this.trigger = $('[data-ot-hamburger]');
+    this.drawer  = ot$('[data-ot-drawer]');
+    this.trigger = ot$('[data-ot-hamburger]');
     if (!this.drawer || !this.trigger) return;
 
     const backdrop = this.drawer.querySelector('[data-ot-drawer-backdrop]');
@@ -114,7 +114,7 @@ const MobileDrawer = {
     if (closeBtn) on(closeBtn, 'click', () => this.close());
 
     // Accordion subcategories
-    $$('[data-ot-drawer-parent]', this.drawer).forEach(item => {
+    ot$$('[data-ot-drawer-parent]', this.drawer).forEach(item => {
       on(item, 'click', () => this._toggleAccordion(item));
     });
 
@@ -132,7 +132,7 @@ const MobileDrawer = {
     document.body.style.overflow = 'hidden';
     this.drawer.removeAttribute('inert');
     // Focus first focusable element
-    const first = $('a, button:not([disabled])', this.drawer);
+    const first = ot$('a, button:not([disabled])', this.drawer);
     first && first.focus();
     this.trigger.setAttribute('aria-expanded', 'true');
   },
@@ -151,8 +151,8 @@ const MobileDrawer = {
     if (!sub) return;
     const isOpen = sub.classList.contains('is-open');
     // Close all
-    $$('[data-ot-drawer-sub]', this.drawer).forEach(s => s.classList.remove('is-open'));
-    $$('[data-ot-drawer-parent]', this.drawer).forEach(p => p.classList.remove('is-expanded'));
+    ot$$('[data-ot-drawer-sub]', this.drawer).forEach(s => s.classList.remove('is-open'));
+    ot$$('[data-ot-drawer-parent]', this.drawer).forEach(p => p.classList.remove('is-expanded'));
     // Open clicked (if was closed)
     if (!isOpen) {
       sub.classList.add('is-open');
@@ -166,7 +166,7 @@ const MobileDrawer = {
    ========================================================= */
 const MegaMenu = {
   init() {
-    const navItems = $$('[data-ot-nav-item]');
+    const navItems = ot$$('[data-ot-nav-item]');
     navItems.forEach(item => {
       const link = item.querySelector('[data-ot-nav-link]');
       if (!link) return;
@@ -179,12 +179,12 @@ const MegaMenu = {
           if (mega) {
             const isOpen = mega.classList.contains('is-open');
             // Close others
-            $$('[data-ot-mega].is-open').forEach(m => m.classList.remove('is-open'));
+            ot$$('[data-ot-mega].is-open').forEach(m => m.classList.remove('is-open'));
             mega.classList.toggle('is-open', !isOpen);
           }
         }
         if (e.key === 'Escape') {
-          $$('[data-ot-mega].is-open').forEach(m => m.classList.remove('is-open'));
+          ot$$('[data-ot-mega].is-open').forEach(m => m.classList.remove('is-open'));
           link.focus();
         }
       });
@@ -193,7 +193,7 @@ const MegaMenu = {
     // Close mega on outside click
     on(document, 'click', e => {
       if (!e.target.closest('[data-ot-nav-item]')) {
-        $$('[data-ot-mega].is-open').forEach(m => m.classList.remove('is-open'));
+        ot$$('[data-ot-mega].is-open').forEach(m => m.classList.remove('is-open'));
       }
     });
   }
@@ -207,7 +207,7 @@ const CartBadge = {
     // Listen for PS9 cart update events
     document.addEventListener('updateCart', (e) => {
       const count = e.detail?.cart?.products_count || 0;
-      $$('[data-ot-cart-count]').forEach(el => {
+      ot$$('[data-ot-cart-count]').forEach(el => {
         el.textContent = count > 0 ? count : '';
         el.classList.add('ot-icon-btn__badge--pulse');
         el.addEventListener('animationend', () => {
@@ -228,9 +228,9 @@ const ProductGallery = {
   currentIdx: 0,
 
   init() {
-    this.mainImg = $('[data-ot-gallery-main]');
-    this.thumbs  = $$('[data-ot-gallery-thumb]');
-    this.lightbox = $('[data-ot-lightbox]');
+    this.mainImg = ot$('[data-ot-gallery-main]');
+    this.thumbs  = ot$$('[data-ot-gallery-thumb]');
+    this.lightbox = ot$('[data-ot-lightbox]');
 
     if (!this.mainImg) return;
 
@@ -244,9 +244,9 @@ const ProductGallery = {
         this.openLightbox(this.currentIdx);
       });
 
-      const closeBtn = $('[data-ot-lightbox-close]', this.lightbox);
-      const prevBtn  = $('[data-ot-lightbox-prev]', this.lightbox);
-      const nextBtn  = $('[data-ot-lightbox-next]', this.lightbox);
+      const closeBtn = ot$('[data-ot-lightbox-close]', this.lightbox);
+      const prevBtn  = ot$('[data-ot-lightbox-prev]', this.lightbox);
+      const nextBtn  = ot$('[data-ot-lightbox-next]', this.lightbox);
 
       if (closeBtn) on(closeBtn, 'click', () => this.closeLightbox());
       if (prevBtn)  on(prevBtn,  'click', () => this.navigate(-1));
@@ -289,14 +289,14 @@ const ProductGallery = {
     const next = (this.currentIdx + dir + this.thumbs.length) % this.thumbs.length;
     this.setActive(next);
     if (this.lightbox && this.lightbox.classList.contains('is-open')) {
-      const lightImg = $('[data-ot-lightbox-img]', this.lightbox);
+      const lightImg = ot$('[data-ot-lightbox-img]', this.lightbox);
       if (lightImg) lightImg.src = this.mainImg.src;
     }
   },
 
   openLightbox(idx) {
     if (!this.lightbox) return;
-    const lightImg = $('[data-ot-lightbox-img]', this.lightbox);
+    const lightImg = ot$('[data-ot-lightbox-img]', this.lightbox);
     if (lightImg) lightImg.src = this.mainImg.src;
     this.lightbox.classList.add('is-open');
     document.body.style.overflow = 'hidden';
@@ -350,8 +350,8 @@ const QuantityControl = {
    ========================================================= */
 const StickyATC = {
   init() {
-    const bar    = $('[data-ot-sticky-atc]');
-    const trigger = $('[data-ot-atc-trigger]');
+    const bar    = ot$('[data-ot-sticky-atc]');
+    const trigger = ot$('[data-ot-atc-trigger]');
     if (!bar || !trigger) return;
 
     const obs = new IntersectionObserver(
@@ -373,7 +373,7 @@ const Wishlist = {
     this.ids = new Set(JSON.parse(localStorage.getItem(this.STORAGE_KEY) || '[]'));
 
     // Mark active buttons
-    $$('[data-ot-wishlist-btn]').forEach(btn => {
+    ot$$('[data-ot-wishlist-btn]').forEach(btn => {
       const id = btn.dataset.productId;
       if (id && this.ids.has(id)) btn.classList.add('is-active');
     });
@@ -401,7 +401,7 @@ const Wishlist = {
     localStorage.setItem(this.STORAGE_KEY, JSON.stringify([...this.ids]));
 
     // Sync all buttons for same product
-    $$(`[data-ot-wishlist-btn][data-product-id="${id}"]`).forEach(b => {
+    ot$$(`[data-ot-wishlist-btn][data-product-id="${id}"]`).forEach(b => {
       b.classList.toggle('is-active', this.ids.has(id));
     });
   }
@@ -414,7 +414,7 @@ const LazyImages = {
   init() {
     if ('loading' in HTMLImageElement.prototype) {
       // Native lazy loading — just set the attribute
-      $$('img[data-src]').forEach(img => {
+      ot$$('img[data-src]').forEach(img => {
         img.src = img.dataset.src;
         if (img.dataset.srcset) img.srcset = img.dataset.srcset;
       });
@@ -432,7 +432,7 @@ const LazyImages = {
       });
     }, { rootMargin: '200px 0px' });
 
-    $$('img[data-src]').forEach(img => obs.observe(img));
+    ot$$('img[data-src]').forEach(img => obs.observe(img));
   }
 };
 
@@ -443,8 +443,8 @@ const ViewToggle = {
   STORAGE_KEY: 'ot-listing-view',
 
   init() {
-    const grid     = $('[data-ot-product-grid]');
-    const btnsGrid = $$('[data-ot-view-btn]');
+    const grid     = ot$('[data-ot-product-grid]');
+    const btnsGrid = ot$$('[data-ot-view-btn]');
     if (!grid || !btnsGrid.length) return;
 
     const saved = localStorage.getItem(this.STORAGE_KEY) || 'grid';
@@ -462,7 +462,7 @@ const ViewToggle = {
   _setView(grid, btns, view) {
     grid.classList.toggle('view-list', view === 'list');
     // Update card layouts
-    $$('[data-ot-product-card]', grid).forEach(card => {
+    ot$$('[data-ot-product-card]', grid).forEach(card => {
       card.classList.toggle('ot-product-card--list', view === 'list');
     });
     btns.forEach(b => b.classList.toggle('is-active', b.dataset.otViewBtn === view));
@@ -476,12 +476,12 @@ const FilterSheet = {
   sheet: null,
 
   init() {
-    this.sheet = $('[data-ot-filter-sheet]');
+    this.sheet = ot$('[data-ot-filter-sheet]');
     if (!this.sheet) return;
 
-    const openBtn  = $('[data-ot-filter-open]');
-    const backdrop = $('[data-ot-filter-backdrop]', this.sheet);
-    const closeBtn = $('[data-ot-filter-close]', this.sheet);
+    const openBtn  = ot$('[data-ot-filter-open]');
+    const backdrop = ot$('[data-ot-filter-backdrop]', this.sheet);
+    const closeBtn = ot$('[data-ot-filter-close]', this.sheet);
 
     if (openBtn)  on(openBtn, 'click', () => this.open());
     if (backdrop) on(backdrop, 'click', () => this.close());
@@ -492,7 +492,7 @@ const FilterSheet = {
     });
 
     // Handle filter group accordion
-    $$('[data-ot-filter-group-toggle]').forEach(toggle => {
+    ot$$('[data-ot-filter-group-toggle]').forEach(toggle => {
       on(toggle, 'click', () => {
         const group = toggle.closest('[data-ot-filter-group]');
         if (group) group.classList.toggle('is-collapsed');
@@ -500,10 +500,10 @@ const FilterSheet = {
     });
 
     // Show more/less in filter lists
-    $$('[data-ot-filter-show-more]').forEach(btn => {
+    ot$$('[data-ot-filter-show-more]').forEach(btn => {
       const container = btn.previousElementSibling;
       if (!container) return;
-      const items = $$('[data-ot-filter-item]', container);
+      const items = ot$$('[data-ot-filter-item]', container);
       const limit = parseInt(btn.dataset.limit || 5);
 
       items.slice(limit).forEach(i => i.style.display = 'none');
@@ -536,7 +536,7 @@ const FilterSheet = {
 const BottomNav = {
   init() {
     const path = window.location.pathname;
-    $$('[data-ot-bottom-nav-item]').forEach(item => {
+    ot$$('[data-ot-bottom-nav-item]').forEach(item => {
       const href = item.getAttribute('href') || item.dataset.href;
       if (href && path.startsWith(href) && href !== '/') {
         item.classList.add('is-active');
@@ -612,7 +612,7 @@ const Toast = {
    ========================================================= */
 const BackToTop = {
   init() {
-    const btn = $('[data-ot-back-top]');
+    const btn = ot$('[data-ot-back-top]');
     if (!btn) return;
 
     const onScroll = throttle(() => {
@@ -629,10 +629,10 @@ const BackToTop = {
    ========================================================= */
 const ProductTabs = {
   init() {
-    const tabLists = $$('[data-ot-tabs]');
+    const tabLists = ot$$('[data-ot-tabs]');
     tabLists.forEach(list => {
-      const tabs    = $$('[data-ot-tab]', list);
-      const panels  = $$(`[data-ot-tab-panel]`);
+      const tabs    = ot$$('[data-ot-tab]', list);
+      const panels  = ot$$(`[data-ot-tab-panel]`);
 
       tabs.forEach(tab => {
         on(tab, 'click', () => {
@@ -640,7 +640,7 @@ const ProductTabs = {
           tabs.forEach(t => t.classList.remove('is-active'));
           panels.forEach(p => p.classList.remove('is-active'));
           tab.classList.add('is-active');
-          const panel = $(`[data-ot-tab-panel="${target}"]`);
+          const panel = ot$(`[data-ot-tab-panel="${target}"]`);
           if (panel) panel.classList.add('is-active');
         });
       });
