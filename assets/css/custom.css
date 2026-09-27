@@ -552,3 +552,32 @@ img, video {
   h2 { font-size: var(--text-xl); }
   .container { padding-inline: var(--space-4); }
 }
+
+/* =========================================================
+   CATEGORY BANNER (e.g. Prenosniki) — templates/catalog/listing.tpl
+   ========================================================= */
+.category-banner {
+  width: 100%;
+  line-height: 0; /* removes inline-image whitespace gap below the banner */
+}
+
+.category-banner img {
+  display: block;
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+@media (max-width: 767px) {
+  .category-banner img {
+    max-height: 160px;
+    border-radius: var(--radius-md);
+  }
+}
+
+@media (max-width: 479px) {
+  .category-banner img {
+    max-height: 120px;
+  }
+}

@@ -72,6 +72,25 @@
   </header>
 
   {* ================================================================
+     CATEGORY BANNER — "Prenosniki" (Notebooks)
+     Shown only on the Prenosniki category (matched by ID or URL slug so it
+     still works if the category ID differs from the default install).
+     Add further categories the same way (extra {if} blocks, own image + alt).
+     ================================================================ *}
+  {if isset($category.id_category) && ($category.id_category == 3 || $category.link_rewrite == 'prenosniki')}
+    <div class="container">
+      <div class="category-banner mb-4">
+        <img src="{$urls.theme_assets}img/banner-prenosniki.jpg"
+             alt="Prenosniki"
+             class="img-fluid rounded shadow-sm"
+             width="1200" height="250"
+             loading="eager"
+             fetchpriority="high">
+      </div>
+    </div>
+  {/if}
+
+  {* ================================================================
      SUBCATEGORY GRID (if has children)
      ================================================================ *}
   {if isset($subcategories) && $subcategories|@count > 0}
