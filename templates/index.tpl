@@ -1,6 +1,7 @@
 {**
- * Outletko Teal — Homepage (index.tpl)
- * Full-width layout: Hero → Categories → Featured → Trust
+ * Outletko DCC — Homepage (index.tpl)
+ * Nordic minimalist B2B layout: Hero → Categories → Brands → Featured → Trust
+ * Visual direction: Foxway (foxway.com/foxway.dk) + DCC (dcc.dk) circular tech.
  *
  * Overrides: hummingbird/templates/index.tpl
  * Hooks available: displayHome, displayHomeFeaturedProducts, etc.
@@ -11,7 +12,8 @@
 <main id="main" role="main">
 
   {* ================================================================
-     HERO SECTION — 2 columns, white/light background (no dark blocks)
+     HERO SECTION — Foxway / Circular Tech
+     Minimalist, spacious, white background — 2 columns.
      ================================================================ *}
   <section class="ot-hero" aria-label="Naslovna slika">
     <div class="container">
@@ -21,73 +23,43 @@
           {* Eyebrow badge *}
           <div class="ot-hero__eyebrow">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-              <rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+              <polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
             </svg>
-            IT oprema in prenosniki • 11.946 izdelkov na zalogi
+            Circular Tech • Preverjena obnovljena IT oprema
           </div>
 
           <h1 class="ot-hero__title">
-            Profesionalna IT oprema<br>
-            <span class="ot-hero__title-accent">po ugodnih cenah</span>
+            Krožna tehnologija in<br>
+            <span class="ot-hero__title-accent">profesionalna IT oprema</span>
           </h1>
 
           <p class="ot-hero__subtitle">
-            Prenosniki, namizni računalniki, monitorji in dodatki vodilnih znamk.
-            Nova in obnovljena oprema z 12-mesečno garancijo.
+            Zmanjšajte ogljični odtis vašega podjetja in stroške IT nabave z vrhunsko
+            preizkušeno opremo razreda Grade A. Prenosniki, računalniki, monitorji in
+            strežniki vodilnih znamk po ugodnih B2B cenah.
           </p>
 
-          {* Primary CTA — "Pomagajte mi izbrati" *}
+          {* Dva CTA gumba *}
           <div class="ot-hero__cta">
-            <a href="{$link->getPageLink('contact')|escape:'html':'UTF-8'}"
+            <a href="{$link->getCategoryLink(3)|default:'#'|escape:'html':'UTF-8'}"
                class="ot-btn-hero-primary"
-               id="hero-cta-help">
+               id="hero-cta-prenosniki">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 1 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
-              </svg>
-              Pomagajte mi izbrati
-            </a>
-          </div>
-
-          {* Quick filter chips *}
-          <div class="ot-hero__quick-filters" aria-label="Hitro filtriranje po kategoriji">
-            <span class="ot-hero__quick-label">Hitro filtriraj:</span>
-            <a href="{$link->getCategoryLink(3)|default:'#'|escape:'html':'UTF-8'}" class="ot-chip-filter" id="hero-chip-prenosniki">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
                 <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M0 21h24"/>
               </svg>
-              Prenosniki
+              Pregled zaloge prenosnikov
             </a>
-            <a href="{$link->getCategoryLink(4)|default:'#'|escape:'html':'UTF-8'}" class="ot-chip-filter" id="hero-chip-namizni">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                <rect x="2" y="3" width="14" height="18" rx="2"/><rect x="18" y="9" width="4" height="8" rx="1"/>
-              </svg>
-              Namizni računalniki
+            <a href="#quality-standards" class="ot-btn-hero-outline" id="hero-cta-grade">
+              Standardi kakovosti Grade A
             </a>
-          </div>
-
-          {* Key stats *}
-          <div class="ot-hero__stats" aria-label="Ključne statistike">
-            <div class="ot-hero__stat">
-              <span class="ot-hero__stat-num">5000+</span>
-              <span class="ot-hero__stat-label">Izdelkov</span>
-            </div>
-            <div class="ot-hero__stat-divider" aria-hidden="true"></div>
-            <div class="ot-hero__stat">
-              <span class="ot-hero__stat-num">2</span>
-              <span class="ot-hero__stat-label">Fizični trgovini</span>
-            </div>
-            <div class="ot-hero__stat-divider" aria-hidden="true"></div>
-            <div class="ot-hero__stat">
-              <span class="ot-hero__stat-num">15+</span>
-              <span class="ot-hero__stat-label">Let izkušenj</span>
-            </div>
           </div>
         </div>
 
-        {* Hero visual — real product photography, not decorative icon blocks *}
+        {* Hero visual — real product photography *}
         <div class="ot-hero__visual">
           <img src="{$urls.theme_assets}img/banner-prenosniki.jpg"
-               alt="Prenosniki in namizni računalniki na zalogi"
+               alt="Obnovljeni prenosniki in namizni računalniki na zalogi"
                class="ot-hero__visual-img"
                width="1200" height="250"
                loading="eager"
@@ -128,13 +100,13 @@
         </a>
 
         <a href="{$link->getCategoryLink(4)|default:'#'|escape:'html':'UTF-8'}"
-           class="ot-cat-card" id="cat-namizni-racunalniki">
+           class="ot-cat-card" id="cat-racunalniki">
           <span class="ot-cat-card__icon">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
               <rect x="2" y="3" width="14" height="18" rx="2"/><rect x="18" y="9" width="4" height="8" rx="1"/>
             </svg>
           </span>
-          <span class="ot-cat-card__name">Namizni računalniki</span>
+          <span class="ot-cat-card__name">Računalniki</span>
           <span class="ot-cat-card__count">
             {if isset($category_product_counts.4)}{$category_product_counts.4|escape:'html':'UTF-8'} izdelkov{else}Oglejte si izdelke{/if}
           </span>
@@ -178,17 +150,17 @@
           </span>
         </a>
 
-        <a href="{$link->getCategoryLink(12)|default:'#'|escape:'html':'UTF-8'}"
-           class="ot-cat-card" id="cat-omrezna-oprema">
+        <a href="{$link->getCategoryLink(2)|default:'#'|escape:'html':'UTF-8'}"
+           class="ot-cat-card ot-cat-card--highlight" id="cat-krozna-it">
           <span class="ot-cat-card__icon">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-              <path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/>
-              <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/>
+              <polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
             </svg>
           </span>
-          <span class="ot-cat-card__name">Omrežna oprema</span>
+          <span class="ot-cat-card__name">Krožna IT ponudba</span>
           <span class="ot-cat-card__count">
-            {if isset($category_product_counts.12)}{$category_product_counts.12|escape:'html':'UTF-8'} izdelkov{else}Oglejte si izdelke{/if}
+            {if isset($category_product_counts.2)}{$category_product_counts.2|escape:'html':'UTF-8'} izdelkov{else}Vsa Grade A/B oprema{/if}
           </span>
           <span class="ot-cat-card__cta">
             Poglej ponudbo
@@ -216,6 +188,26 @@
         </a>
 
       </nav>
+    </div>
+  </section>
+
+  {* ================================================================
+     B2B BRAND STRIP — recognised manufacturer wordmarks, uniform gray.
+     Replace the text wordmarks below with real logo files (SVG/PNG) at
+     assets/img/brands/{brand}.svg once you have licensed assets — the
+     .ot-brand-strip__logo class already renders images in grayscale
+     with a color-on-hover transition.
+     ================================================================ *}
+  <section class="ot-brand-strip" aria-label="Priznane znamke">
+    <div class="container">
+      <p class="ot-brand-strip__label">Obnavljamo in prodajamo opremo vodilnih znamk</p>
+      <div class="ot-brand-strip__row">
+        <span class="ot-brand-strip__logo">Lenovo</span>
+        <span class="ot-brand-strip__logo">HP</span>
+        <span class="ot-brand-strip__logo">Dell</span>
+        <span class="ot-brand-strip__logo">Apple</span>
+        <span class="ot-brand-strip__logo">Fujitsu</span>
+      </div>
     </div>
   </section>
 
@@ -312,46 +304,20 @@
   </section>
 
   {* ================================================================
-     TRUST BAR — 4 stebri zaupanja
+     TRUST BAR — 4 stebri v slogu Foxway / DCC
      ================================================================ *}
-  <aside class="ot-trust-bar" aria-label="Razlogi za nakup">
+  <aside class="ot-trust-bar" id="quality-standards" aria-label="Standardi kakovosti in prednosti">
     <div class="container">
       <div class="ot-trust-bar__grid">
         <div class="ot-trust-item">
           <div class="ot-trust-item__icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4"/><path d="M12 3l8 3.5V11c0 5.5-3.5 9-8 10-4.5-1-8-4.5-8-10V6.5L12 3z"/>
             </svg>
           </div>
           <div>
-            <div class="ot-trust-item__label">12 mesecev garancije</div>
-            <div class="ot-trust-item__sub">Na vse izdelke</div>
-          </div>
-        </div>
-
-        <div class="ot-trust-item">
-          <div class="ot-trust-item__icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
-              <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
-            </svg>
-          </div>
-          <div>
-            <div class="ot-trust-item__label">Hitra dostava</div>
-            <div class="ot-trust-item__sub">Brezplačna nad 100 EUR</div>
-          </div>
-        </div>
-
-        <div class="ot-trust-item">
-          <div class="ot-trust-item__icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V8a5 5 0 0 1 10 0v3"/>
-              <circle cx="12" cy="16" r="1.5"/>
-            </svg>
-          </div>
-          <div>
-            <div class="ot-trust-item__label">Varno plačilo</div>
-            <div class="ot-trust-item__sub">Kartično ali po povzetju</div>
+            <div class="ot-trust-item__label">Kakovost razreda A (Grade A)</div>
+            <div class="ot-trust-item__sub">100% tehnično testirano</div>
           </div>
         </div>
 
@@ -363,8 +329,33 @@
             </svg>
           </div>
           <div>
-            <div class="ot-trust-item__label">14 dni za vračilo</div>
-            <div class="ot-trust-item__sub">Brez vprašanj, po zakonu</div>
+            <div class="ot-trust-item__label">Krožno gospodarstvo</div>
+            <div class="ot-trust-item__sub">Do 70% nižji CO₂ odtis</div>
+          </div>
+        </div>
+
+        <div class="ot-trust-item">
+          <div class="ot-trust-item__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="ot-trust-item__label">12 do 24 mesecev garancije</div>
+            <div class="ot-trust-item__sub">Odvisno od stanja izdelka</div>
+          </div>
+        </div>
+
+        <div class="ot-trust-item">
+          <div class="ot-trust-item__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+              <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+            </svg>
+          </div>
+          <div>
+            <div class="ot-trust-item__label">Hitra dobava</div>
+            <div class="ot-trust-item__sub">Iz lastne zaloge v Sloveniji</div>
           </div>
         </div>
       </div>
@@ -395,16 +386,9 @@
 .ot-hero__subtitle { font-size:1.125rem;color:var(--ot-text-secondary);line-height:1.6;max-width:480px;margin:0 0 28px; }
 .ot-hero__cta { display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px; }
 .ot-btn-hero-primary { display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 28px;background:var(--ot-primary);color:#fff;border-radius:var(--radius-lg);font-weight:700;font-size:1rem;text-decoration:none;transition:all 0.2s;border:2px solid transparent; }
-.ot-btn-hero-primary:hover { background:var(--ot-primary-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(20,83,45,0.3);text-decoration:none;color:#fff; }
-.ot-hero__quick-filters { display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:32px; }
-.ot-hero__quick-label { font-size:0.8125rem;font-weight:600;color:var(--ot-text-muted); }
-.ot-chip-filter { display:inline-flex;align-items:center;gap:7px;padding:9px 16px;background:#fff;border:1.5px solid var(--ot-border);border-radius:999px;font-size:0.875rem;font-weight:600;color:var(--ot-text-primary);text-decoration:none;transition:all 0.2s; }
-.ot-chip-filter:hover { border-color:var(--ot-primary);background:var(--ot-primary-subtle);color:var(--ot-primary);text-decoration:none; }
-.ot-hero__stats { display:flex;align-items:center;gap:20px; }
-.ot-hero__stat { text-align:center; }
-.ot-hero__stat-num { display:block;font-family:var(--font-display);font-size:1.75rem;font-weight:800;color:var(--ot-text-primary); }
-.ot-hero__stat-label { font-size:0.75rem;color:var(--ot-text-muted);text-transform:uppercase;letter-spacing:0.08em; }
-.ot-hero__stat-divider { width:1px;height:40px;background:var(--ot-border); }
+.ot-btn-hero-primary:hover { background:var(--ot-primary-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(4,120,87,0.25);text-decoration:none;color:#fff; }
+.ot-btn-hero-outline { display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 28px;background:transparent;color:var(--ot-navy);border-radius:var(--radius-lg);font-weight:700;font-size:1rem;text-decoration:none;transition:all 0.2s;border:2px solid var(--ot-border-strong); }
+.ot-btn-hero-outline:hover { border-color:var(--ot-navy);background:var(--ot-section-alt-bg);text-decoration:none;color:var(--ot-navy); }
 /* Hero visual — real product photo, rounded + shadow */
 .ot-hero__visual { border-radius:var(--radius-2xl);overflow:hidden;box-shadow:var(--shadow-xl);aspect-ratio:4/3; }
 .ot-hero__visual-img { width:100%;height:100%;object-fit:cover;display:block; }
@@ -440,6 +424,18 @@
 .ot-cat-card__cta svg { transition:transform 0.2s; }
 .ot-cat-card:hover .ot-cat-card__cta svg { transform:translateX(2px); }
 
+/* "Krožna IT ponudba" — highlighted circular-economy tile */
+.ot-cat-card--highlight { background:var(--ot-primary-subtle); border-color:var(--badge-grade-a-border); }
+.ot-cat-card--highlight .ot-cat-card__icon { background:#fff; color:var(--ot-primary); }
+.ot-cat-card--highlight:hover .ot-cat-card__icon { background:var(--ot-primary); color:#fff; }
+
+/* ---- B2B brand strip — uniform gray wordmarks ---- */
+.ot-brand-strip { padding:32px 0; background:var(--ot-section-alt-bg); border-top:1px solid var(--ot-border); border-bottom:1px solid var(--ot-border); }
+.ot-brand-strip__label { text-align:center; font-size:0.8125rem; font-weight:600; color:var(--ot-text-muted); text-transform:uppercase; letter-spacing:0.06em; margin:0 0 20px; }
+.ot-brand-strip__row { display:flex; align-items:center; justify-content:center; gap:48px; flex-wrap:wrap; }
+.ot-brand-strip__logo { font-family:var(--font-display); font-size:1.375rem; font-weight:800; letter-spacing:-0.01em; color:var(--ot-text-disabled); transition:color 0.2s; }
+.ot-brand-strip__logo:hover { color:var(--ot-text-secondary); }
+
 /* ---- Section header ---- */
 .ot-section-header { display:flex;align-items:center;justify-content:space-between;margin-bottom:24px; }
 .ot-section-header .ot-section-title { margin-bottom:0; }
@@ -461,7 +457,7 @@
 .ot-condition-strip__sub { font-size:0.75rem;opacity:0.8;margin-top:2px; }
 
 /* ---- Responsive ---- */
-@media (max-width:1023px) { .ot-hero__content{grid-template-columns:1fr;gap:32px} .ot-hero__visual{order:-1;aspect-ratio:16/7} .ot-cat-card-grid{grid-template-columns:repeat(2,1fr)} .ot-condition-strip__grid{grid-template-columns:repeat(2,1fr)} }
-@media (max-width:767px) { .ot-hero{padding:40px 0 36px} .ot-cat-card-grid{grid-template-columns:1fr} .ot-condition-strip__grid{grid-template-columns:1fr} .ot-hero__stats{display:none} .ot-hero__quick-filters{gap:8px} }
+@media (max-width:1023px) { .ot-hero__content{grid-template-columns:1fr;gap:32px} .ot-hero__visual{order:-1;aspect-ratio:16/7} .ot-cat-card-grid{grid-template-columns:repeat(2,1fr)} .ot-condition-strip__grid{grid-template-columns:repeat(2,1fr)} .ot-brand-strip__row{gap:32px} }
+@media (max-width:767px) { .ot-hero{padding:40px 0 36px} .ot-hero__cta{flex-direction:column;align-items:stretch} .ot-cat-card-grid{grid-template-columns:1fr} .ot-condition-strip__grid{grid-template-columns:1fr} .ot-brand-strip__row{gap:24px} .ot-brand-strip__logo{font-size:1.125rem} }
 </style>
 {/block}

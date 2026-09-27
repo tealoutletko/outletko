@@ -1,6 +1,6 @@
 /*
- * Outletko Teal — Badges Component
- * Condition badges: Novo / Outlet / Obnovljeno / Rabljeno
+ * Outletko DCC — Badges Component
+ * Condition badges: Grade A / Grade B / Circular / Refurbished
  * ======================================================= */
 
 /* ---- Base badge ---- */
@@ -41,6 +41,33 @@
   background: var(--badge-neutral-bg);
   color: var(--badge-neutral-text);
   border-color: var(--badge-neutral-border);
+}
+
+/* ---- Circular / Refurbished grading (Foxway / DCC style) ----
+   "Grade A - Kot novo" — fresh green (top quality, 100% tehnično testirano).
+   "Grade B - Obnovljeno" — neutral gray (still fully functional, visible wear). ---- */
+.ot-badge--grade-a {
+  background: var(--badge-grade-a-bg);
+  color: var(--badge-grade-a-text);
+  border-color: var(--badge-grade-a-border);
+}
+
+.ot-badge--grade-b {
+  background: var(--badge-grade-b-bg);
+  color: var(--badge-grade-b-text);
+  border-color: var(--badge-grade-b-border);
+}
+
+.ot-badge--solid-grade-a {
+  background: var(--badge-grade-a-solid);
+  color: #fff;
+  border-color: transparent;
+}
+
+.ot-badge--solid-grade-b {
+  background: var(--badge-grade-b-solid);
+  color: #fff;
+  border-color: transparent;
 }
 
 /* ---- Solid/pill variants (used on filter chips) ---- */

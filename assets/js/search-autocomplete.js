@@ -1,5 +1,5 @@
 /**
- * Outletko Teal — Search Autocomplete
+ * Outletko DCC — Search Autocomplete
  * Enhanced search with live suggestions, categories,
  * recent searches, and keyboard navigation
  * ================================================== */

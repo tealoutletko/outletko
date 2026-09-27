@@ -1,5 +1,5 @@
 {**
- * Outletko Teal — Mobile Bottom Navigation
+ * Outletko DCC — Mobile Bottom Navigation
  * Fixed bottom nav bar for mobile (< 768px)
  * Included via hook displayBeforeBodyClosingTag via module, or directly in layout.tpl
  *

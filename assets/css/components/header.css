@@ -1,6 +1,6 @@
 /*
- * Outletko Teal — Header Component
- * Sticky header: topbar + main header + mobile bar
+ * Outletko DCC — Header Component
+ * Sticky header: B2B topbar + main header + main menu + mobile bar
  * ================================================= */
 
 /* =========================================================
@@ -220,6 +220,16 @@
   color: var(--ot-primary);
   border-bottom-color: var(--ot-primary);
   text-decoration: none;
+}
+
+/* "Krožna IT ponudba" — highlighted circular-economy entry point */
+.ot-main-menu__link--highlight {
+  color: var(--ot-primary);
+  font-weight: var(--fw-semibold);
+}
+
+.ot-main-menu__link--highlight:hover {
+  color: var(--ot-primary-dark);
 }
 
 /* =========================================================

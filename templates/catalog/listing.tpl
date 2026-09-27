@@ -1,5 +1,5 @@
 {**
- * Outletko Teal — Category Page (catalog/listing.tpl)
+ * Outletko DCC — Category Page (catalog/listing.tpl)
  * Left-column layout: Filters sidebar + product grid
  *
  * Overrides: hummingbird/templates/catalog/listing.tpl

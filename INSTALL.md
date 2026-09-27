@@ -1,4 +1,4 @@
-# Outletko Teal — Navodila za namestitev
+# Outletko DCC — Navodila za namestitev
 **PrestaShop 9 Hummingbird Child Theme**  
 TEAL d.o.o. | v1.0.0
 
@@ -20,21 +20,24 @@ TEAL d.o.o. | v1.0.0
 
 ## Korak 1 — Prenos datotek
 
+> [!IMPORTANT]
+> PrestaShop zahteva, da `name:` v `config/theme.yml` (`outletko_dcc`) **natančno ustreza** imenu mape teme pod `/themes/`. Mapo torej vedno poimenuj `outletko_dcc/`, ne glede na to, kako je poimenovan ta git repozitorij lokalno.
+
 ### Možnost A: ZIP arhiv (priporočeno)
-1. Zapakir mapo `outletko-teal/` v ZIP arhiv:
+1. Preimenuj/zapakiraj vsebino tega repozitorija v mapo `outletko_dcc/` in jo stisni v ZIP arhiv:
    ```powershell
    # Windows PowerShell
-   Compress-Archive -Path outletko-teal -DestinationPath outletko-teal.zip
+   Compress-Archive -Path outletko_dcc -DestinationPath outletko_dcc.zip
    ```
 2. V PS9 Admin pojdi na **Design → Teme → Dodaj novo temo**.
-3. Naloži `outletko-teal.zip`.
+3. Naloži `outletko_dcc.zip`.
 
 ### Možnost B: FTP / direktna kopija
-1. Kopiraj mapo `outletko-teal/` v `/themes/` na strežniku:
+1. Kopiraj vsebino tega repozitorija v mapo `outletko_dcc/` pod `/themes/` na strežniku:
    ```
    /themes/
    ├── hummingbird/        ← starševska tema (mora obstajati)
-   └── outletko-teal/      ← naša tema
+   └── outletko_dcc/       ← naša tema
        ├── config/
        │   └── theme.yml
        ├── assets/
@@ -71,7 +74,7 @@ Tema uporablja eno samo sodobno sans-serif pisavo — **Inter** (za besedilo in 
 1. Prenesi `Inter` variable: https://fonts.google.com/specimen/Inter  
    → `Download family` → zapakiraj → vzemi `Inter[wght].woff2`
 2. Preimenuj datoteko: `inter-variable.woff2`
-3. Naloži v: `/themes/outletko-teal/assets/fonts/`
+3. Naloži v: `/themes/outletko_dcc/assets/fonts/`
 
 > [!TIP]
 > Alternativno lahko v `assets/css/variables.css` zamenjaš `@font-face` blok z Google Fonts CDN linkom, a to zmanjša performance score.
@@ -81,7 +84,7 @@ Tema uporablja eno samo sodobno sans-serif pisavo — **Inter** (za besedilo in 
 ## Korak 3 — Aktivacija teme
 
 1. Pojdi v **PS9 Admin → Design → Teme**.
-2. Poišči **Outletko Teal** in klikni **Uporabi to temo**.
+2. Poišči **Outletko DCC** in klikni **Uporabi to temo**.
 3. PS9 bo samodejno preveril `parent: hummingbird` in podedoval vse brez teme.
 
 ---
@@ -113,7 +116,9 @@ Odpri `templates/index.tpl` in posodobi ID kategorij glede na vaše dejansko dre
 {* Zamenjaj ID-je z dejanskimi iz tvojega PS9 kataloga *}
 {$link->getCategoryLink(3)}   {* Prenosniki *}
 {$link->getCategoryLink(4)}   {* Računalniki *}
-{$link->getCategoryLink(5)}   {* Zasloni *}
+{$link->getCategoryLink(5)}   {* Monitorji *}
+{$link->getCategoryLink(8)}   {* Strežniki *}
+{$link->getCategoryLink(2)}   {* Krožna IT ponudba (glavna kategorija) *}
 ...
 ```
 
@@ -121,18 +126,28 @@ Da ugotoviš pravilne ID-je:
 - Pojdi v **PS9 Admin → Katalog → Kategorije**.
 - ID je prikazan v URL-ju ko urejuješ kategorijo.
 
-### Pogoji blaga (Condition)
-PS9 ima privzete vrednosti: `new`, `used`, `refurbished`.  
+### Pogoji blaga (Condition) in krožno razvrščanje (Grade A / Grade B)
+PS9 ima privzete vrednosti: `new`, `used`, `refurbished`.
 Naša tema jih preslika na slovensko:
 
 | PS9 vrednost | Prikazano |
 |---|---|
-| `new` | Novo ✓ |
-| `refurbished` | Obnovljeno ↺ |
-| `used` | Rabljeno ♻ |
-| `outlet` / `neprodano` | Outlet % |
+| `new` | Novo |
+| `refurbished` | Obnovljeno (glej spodaj za Grade A/B) |
+| `used` | Rabljeno |
+| `outlet` / `neprodano` | Outlet |
 
 Vrednosti nastavi v **PS9 Admin → Katalog → Izdelki → [Izdelek] → Stanje**.
+
+Za izdelke s stanjem `refurbished` tema prikaže natančnejšo krožno oceno
+("Grade A - Kot novo" v zeleni barvi ali "Grade B - Obnovljeno" v sivi), če
+ima izdelek dodano **Funkcijo (Feature)** z imenom, ki vsebuje "Razred",
+"Ocena" ali "Grade", in vrednostjo, ki vsebuje "odlič"/"A" (Grade A) ali
+"dobro"/"B" (Grade B):
+
+**PS9 Admin → Katalog → Funkcije → Dodaj novo funkcijo** → npr. `Razred obnove`
+→ vrednosti `Odlično` / `Dobro`, nato jo dodaj posameznemu izdelku.
+Brez te funkcije se prikaže generična siva značka "Obnovljeno".
 
 ### SEO nastavitve
 Posodobi `config/theme.yml` meta sekcijo z dejanskimi opisi.
@@ -202,8 +217,9 @@ Vsi vidni nizi v `.tpl` datotekah so oviti v `{l s='...' d='Shop.Theme.*'}` za p
 ## Znane omejitve
 
 - Tema NE vključuje dejanskih `.woff2` font datotek (copyright) — prenesi jih ročno (korak 2).
-- `preview.png` (400×300px) je placeholder — zamenjaj z dejanskim posnetkom zaslona.
-- ID-ji kategorij v `index.tpl` so privzeti primeri — prilagodi jih svojemu katalogu.
+- `preview.png` obstaja (zahteva PrestaShopov Theme Manager natanko to ime datoteke, ne `.jpg`), a je trenutno le star posnetek zaslona — zamenjaj ga z dejanskim posnetkom nove **Outletko DCC** naslovnice, ko bo tema živa.
+- Znamke (Lenovo, HP, Dell, Apple, Fujitsu) na naslovnici so trenutno besedilni "wordmarks" — zamenjaj jih z licenciranimi SVG/PNG logotipi v `assets/img/brands/`, ko jih pridobiš.
+- ID-ji kategorij v `index.tpl` in `header.tpl` so privzeti primeri — prilagodi jih svojemu katalogu.
 - Checkout strani (`order.tpl`, `order-confirmation.tpl`) podedujemo od Hummingbird; naš `checkout.css` stilizira elemente znotraj teh strani.
 
 ---

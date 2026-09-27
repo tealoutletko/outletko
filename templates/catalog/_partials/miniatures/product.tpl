@@ -1,16 +1,17 @@
 {**
- * Outletko Teal — Product Miniature Card
+ * Outletko DCC — Product Miniature Card
  * Used in category grids, search results, related products
+ * Circular/refurbished grading in the visual style of Foxway / DCC.
  *
  * Overrides: hummingbird/templates/catalog/_partials/miniatures/product.tpl
  * Variables: $product (from ProductLazyArray)
  **}
 
-{* ---- Determine condition ----
-   "Obnovljeno" (refurbished) is shown as a two-tier grade — "Obnovljeno - odlično"
-   (teal) or "Obnovljeno - dobro" (orange) — read from a product Feature named
+{* ---- Determine condition / circular grade ----
+   Refurbished products are shown as "Grade A - Kot novo" (fresh green) or
+   "Grade B - Obnovljeno" (neutral gray), read from a product Feature named
    "Razred" / "Ocena" / "Grade" (configure in PS9 Admin → Katalog → Funkcije).
-   Falls back to a generic blue "Obnovljeno" badge if no grade feature is set. *}
+   Falls back to a generic gray "Obnovljeno" badge if no grade feature is set. *}
 {assign var='condition_key' value=$product.condition|lower}
 {assign var='condition_label' value=''}
 {assign var='condition_class' value=''}
@@ -28,12 +29,12 @@
       {assign var='grade_name' value=$gradefeat.name|lower}
       {assign var='grade_val' value=$gradefeat.value|lower}
       {if $grade_name|strstr:'razred' || $grade_name|strstr:'ocena' || $grade_name|strstr:'grade'}
-        {if $grade_val|strstr:'odlič' || $grade_val == 'a' || $grade_val == 'a+'}
-          {assign var='condition_label' value='Obnovljeno - odlično'}
-          {assign var='condition_class' value='odlicno'}
+        {if $grade_val|strstr:'odlič' || $grade_val|strstr:'a+' || $grade_val == 'a'}
+          {assign var='condition_label' value='Grade A - Kot novo'}
+          {assign var='condition_class' value='grade-a'}
         {elseif $grade_val|strstr:'dobro' || $grade_val == 'b'}
-          {assign var='condition_label' value='Obnovljeno - dobro'}
-          {assign var='condition_class' value='dobro'}
+          {assign var='condition_label' value='Grade B - Obnovljeno'}
+          {assign var='condition_class' value='grade-b'}
         {/if}
       {/if}
     {/foreach}
@@ -42,6 +43,7 @@
   {assign var='condition_label' value='Outlet'}
   {assign var='condition_class' value='outlet'}
 {/if}
+
 
 {* ---- Discount percent ---- *}
 {assign var='discount_pct' value=0}
@@ -176,6 +178,12 @@
           {$product.price|escape:'html':'UTF-8'}
         </span>
         <span class="ot-product-card__price-tax">{l s='z DDV' d='Shop.Theme.Checkout'}</span>
+        {* B2B: clear price excl. VAT for business buyers *}
+        {if isset($product.price_tax_exc)}
+          <span class="ot-product-card__price-b2b">
+            {convertPrice price=$product.price_tax_exc} {l s='brez DDV' d='Shop.Theme.Checkout'}
+          </span>
+        {/if}
         <meta itemprop="priceCurrency" content="{$currency.iso_code}">
         <meta itemprop="availability" content="{if $product.availability == 'available' || $product.availability == 'last_remaining_items'}https://schema.org/InStock{else}https://schema.org/OutOfStock{/if}">
 

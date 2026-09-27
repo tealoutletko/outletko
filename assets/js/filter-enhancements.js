@@ -1,5 +1,5 @@
 /**
- * Outletko Teal — Filter Enhancements JS
+ * Outletko DCC — Filter Enhancements JS
  * Dual-handle price slider, brand search, mobile sheet,
  * Ajax facet refresh, active filter chips
  * ============================================================ */

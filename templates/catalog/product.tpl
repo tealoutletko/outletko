@@ -1,5 +1,5 @@
 {**
- * Outletko Teal — Product Detail Page
+ * Outletko DCC — Product Detail Page
  * Full gallery, specs, price, ATC, tabs, related products
  *
  * Overrides: hummingbird/templates/catalog/product.tpl

@@ -1,5 +1,5 @@
 {**
- * Outletko Teal — Head partial override
+ * Outletko DCC — Head partial override
  * Adds: preconnect hints, self-hosted font preloads,
  *       Organization schema, Open Graph meta, hreflang
  *

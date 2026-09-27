@@ -1,5 +1,5 @@
 /**
- * Outletko Teal — Main Theme JavaScript
+ * Outletko DCC — Main Theme JavaScript
  * Vanilla ES6+, no jQuery, no external dependencies
  * PrestaShop 9 Hummingbird child theme
  * ================================================== */

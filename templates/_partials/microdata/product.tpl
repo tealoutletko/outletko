@@ -1,5 +1,5 @@
 {**
- * Outletko Teal — Product microdata / JSON-LD
+ * Outletko DCC — Product microdata / JSON-LD
  * Schema.org Product with offers, condition, breadcrumb
  *
  * Available variables: $product, $breadcrumb, $urls

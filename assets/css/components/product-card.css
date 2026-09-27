@@ -1,6 +1,6 @@
 /*
- * Outletko Teal — Product Card Component
- * Grid card, list card, hover states, skeleton
+ * Outletko DCC — Product Card Component
+ * Grid card, list card, hover states, skeleton, B2B pricing
  * ============================================= */
 
 /* =========================================================
@@ -222,6 +222,15 @@
   color: var(--ot-text-muted);
   font-weight: var(--fw-normal);
   display: block;
+  margin-top: 2px;
+}
+
+/* ---- B2B price excl. VAT — clear secondary line for business buyers ---- */
+.ot-product-card__price-b2b {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: var(--fw-medium);
+  color: var(--ot-price-b2b-text);
   margin-top: 2px;
 }
 
