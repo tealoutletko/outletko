@@ -1,11 +1,16 @@
-name: outletko-teal
-display_name: "Outletko Teal - Modern IT Store"
+name: outletko_dcc
+display_name: "Outletko DCC"
 version: "1.0.0"
-author: "TEAL d.o.o."
-email: "info@teal.si"
-url: "https://outletko.si"
-description: "Modern PrestaShop 9 Hummingbird child theme for outletko.si - premium IT hardware ecommerce with Dell/Lenovo inspired design."
+author:
+  name: "TEAL d.o.o."
+  email: "info@teal.si"
+  url: "https://outletko.si"
+description: "Nordic minimalist B2B PrestaShop 9 Hummingbird child theme for outletko.si — circular economy / refurbished IT hardware, in the visual style of Foxway and DCC."
 license: "AFL 3.0"
+
+# IMPORTANT — PrestaShop requires the "name" above to match the theme's
+# actual directory name under /themes/ exactly. When packaging/deploying
+# this theme, the folder must be named "outletko_dcc" (see INSTALL.md).
 
 # Inherit everything from Hummingbird (PS9 default theme)
 parent: hummingbird
@@ -93,9 +98,9 @@ theme_settings:
 
 meta:
   - page: index
-    title: "Outletko.si - Rabljena in obnovljena IT oprema | TEAL d.o.o."
-    description: "Kupite novo, obnovljeno in rabljeno IT opremo po dostopnih cenah. Prenosniki, računalniki, zasloni, tiskalniki in več. TEAL d.o.o., Laško in Celje."
-    keywords: "prenosniki, računalniki, obnovljeni prenosniki, rabljeni računalniki, outlet it oprema, celje, laško"
+    title: "Outletko DCC - Krožna tehnologija in profesionalna IT oprema | TEAL d.o.o."
+    description: "B2B ponudba obnovljene IT opreme razreda Grade A. Prenosniki, računalniki, monitorji in strežniki vodilnih znamk, do 24 mesecev garancije, hitra dostava iz zaloge v Sloveniji. TEAL d.o.o."
+    keywords: "krožna ekonomija, refurbished it oprema, grade a prenosniki, obnovljeni računalniki, b2b it oprema, outletko dcc, celje, laško"
   - page: product
     title: ""
     description: ""
@@ -105,13 +110,13 @@ meta:
     description: ""
     keywords: ""
   - page: search
-    title: "Iskanje - Outletko.si"
+    title: "Iskanje - Outletko DCC"
     description: ""
     keywords: ""
   - page: stores
     title: "Naše trgovine - Laško in Celje | TEAL d.o.o."
-    description: "Obiščite nas v naši fizični trgovini v Laškem ali Celju. Oglejte si IT opremo, prevzemite naročilo ali se posvetujte z našimi strokovnjaki."
-    keywords: "outletko trgovina laško celje teal"
+    description: "Obiščite nas v naši fizični trgovini v Laškem ali Celju. Oglejte si obnovljeno IT opremo, prevzemite naročilo ali se posvetujte z našimi strokovnjaki za B2B nabavo."
+    keywords: "outletko dcc trgovina laško celje teal"
 
 layouts:
   index: layout-full-width
