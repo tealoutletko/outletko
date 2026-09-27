@@ -213,7 +213,7 @@
    ========================================================= */
 .ot-product-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--space-5);
   transition: opacity var(--duration-200);
 }
@@ -439,9 +439,11 @@
 }
 
 /* =========================================================
-   RESPONSIVE
+   RESPONSIVE — 4 stolpci na namizju, 2 na tablici, 1 na telefonu
    ========================================================= */
 @media (max-width: 1199px) {
+  /* Category page has a filter sidebar eating into the width — drop to
+     3 columns just below desktop so cards keep a comfortable size. */
   .ot-product-grid { grid-template-columns: repeat(3, 1fr); }
   .ot-product-grid--4col { grid-template-columns: repeat(3, 1fr); }
 }
@@ -464,6 +466,6 @@
   .ot-sort-select { min-width: 0; font-size: var(--text-xs); }
 }
 
-@media (max-width: 399px) {
+@media (max-width: 479px) {
   .ot-product-grid { grid-template-columns: 1fr; }
 }

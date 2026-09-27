@@ -127,6 +127,15 @@
   gap: var(--space-2);
 }
 
+/* ---- Brand / manufacturer (bold caps, e.g. LENOVO, HP, DELL) ---- */
+.ot-product-card__brand {
+  font-size: var(--text-2xs);
+  font-weight: var(--fw-bold);
+  color: var(--ot-text-muted);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+}
+
 /* ---- Product name ---- */
 .ot-product-card__name {
   font-family: var(--font-display);
@@ -149,38 +158,29 @@
   text-decoration: none;
 }
 
-/* ---- Key specs mini-table ----
-   Reserved space below the title for key specs (procesor, RAM, SSD).
-   min-height keeps card heights consistent even when a product has
-   fewer than 3 features. */
+/* ---- Key specs — single line, small gray text ----
+   e.g. "Intel Core i5-10310U • 8GB • 256GB SSD"
+   min-height reserves the line's space so card heights stay aligned
+   even when a product has fewer/no features. */
 .ot-product-card__specs {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
   flex: 1;
-  min-height: 54px;
+  min-height: 18px;
 }
 
-.ot-product-card__spec-row {
-  display: flex;
-  align-items: baseline;
-  gap: var(--space-1-5);
+.ot-product-card__specs-line {
+  margin: 0;
   font-size: var(--text-xs);
-}
-
-.ot-product-card__spec-key {
   color: var(--ot-text-muted);
-  flex-shrink: 0;
-  font-weight: var(--fw-medium);
-  min-width: 60px;
-}
-
-.ot-product-card__spec-val {
-  color: var(--ot-text-secondary);
-  font-weight: var(--fw-medium);
+  font-weight: var(--fw-normal);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  line-height: 1.4;
+}
+
+.ot-product-card__specs-sep {
+  margin: 0 var(--space-1-5);
+  color: var(--ot-border-strong);
 }
 
 /* ---- Price block ---- */
@@ -318,16 +318,8 @@
   -webkit-line-clamp: 1;
 }
 
-.ot-product-card--list .ot-product-card__specs {
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: var(--space-2) var(--space-4);
-}
-
-.ot-product-card--list .ot-product-card__spec-row {
-  flex-direction: column;
-  gap: 2px;
-  min-width: 80px;
+.ot-product-card--list .ot-product-card__specs-line {
+  white-space: normal;
 }
 
 .ot-product-card--list .ot-product-card__price-block {

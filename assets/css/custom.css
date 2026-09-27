@@ -26,7 +26,8 @@ body {
   font-weight: var(--fw-normal);
   line-height: var(--lh-normal);
   color: var(--ot-text-primary);
-  background-color: var(--ot-bg);
+  /* Page canvas: light gray — content cards stay white via --card-bg / --ot-bg */
+  background-color: var(--ot-page-bg);
   transition: background-color var(--duration-300) var(--ease-in-out),
               color var(--duration-300) var(--ease-in-out);
   overflow-x: hidden;
@@ -72,12 +73,14 @@ img, video {
   display: block;
 }
 
-/* ---- Utility container ---- */
+/* ---- Utility container ----
+   max-width: 1280px; margin: 0 auto; padding: 0 16px —
+   no element should ever touch the viewport's outer edge. */
 .container {
   width: 100%;
   max-width: var(--container-max);
-  margin-inline: auto;
-  padding-inline: var(--container-padding);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
 }
 
 /* ---- Focus visible accessibility ---- */
@@ -324,18 +327,17 @@ img, video {
   background: var(--ot-primary-subtle);
 }
 
-/* ---- Trust bar ---- */
+/* ---- Trust bar — 4 white tiles with soft shadow ---- */
 .ot-trust-bar {
-  background: var(--ot-surface);
-  border-top: 1px solid var(--ot-border);
-  padding: var(--space-5) 0;
+  background: transparent;
+  border-top: none;
+  padding: var(--space-4) 0 var(--space-10);
 }
 
 .ot-trust-bar__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: var(--space-6);
-  align-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
 }
 
 .ot-trust-item {
@@ -343,11 +345,23 @@ img, video {
   align-items: center;
   gap: var(--space-3);
   text-align: left;
+  background: var(--ot-bg);
+  border: 1px solid var(--ot-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--duration-200) var(--ease-out),
+              transform var(--duration-200) var(--ease-out);
+}
+
+.ot-trust-item:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .ot-trust-item__icon {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   flex-shrink: 0;
   background: var(--ot-primary-subtle);
   border-radius: var(--radius-md);
@@ -355,6 +369,14 @@ img, video {
   align-items: center;
   justify-content: center;
   color: var(--ot-primary);
+}
+
+@media (max-width: 1023px) {
+  .ot-trust-bar__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 575px) {
+  .ot-trust-bar__grid { grid-template-columns: 1fr; }
 }
 
 .ot-trust-item__label {
@@ -550,7 +572,6 @@ img, video {
 @media (max-width: 575px) {
   h1 { font-size: var(--text-2xl); }
   h2 { font-size: var(--text-xl); }
-  .container { padding-inline: var(--space-4); }
 }
 
 /* =========================================================

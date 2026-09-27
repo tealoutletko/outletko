@@ -112,7 +112,7 @@
         as="style">
 
   {* ---- Theme color for mobile browser chrome ---- *}
-  <meta name="theme-color" content="#0066CC" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1e293b" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
   <meta name="color-scheme" content="light dark">
 {/block}

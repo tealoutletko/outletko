@@ -27,42 +27,20 @@
   flex-shrink: 0;
 }
 
-/* ---- Condition variants ---- */
-.ot-badge--novo {
-  background: var(--badge-novo-bg);
-  color: var(--badge-novo-text);
-  border-color: var(--badge-novo-border);
-}
-
-.ot-badge--outlet {
-  background: var(--badge-outlet-bg);
-  color: var(--badge-outlet-text);
-  border-color: var(--badge-outlet-border);
-}
-
-.ot-badge--obnovljeno {
-  background: var(--badge-obnovljeno-bg);
-  color: var(--badge-obnovljeno-text);
-  border-color: var(--badge-obnovljeno-border);
-}
-
-.ot-badge--rabljeno {
-  background: var(--badge-rabljeno-bg);
-  color: var(--badge-rabljeno-text);
-  border-color: var(--badge-rabljeno-border);
-}
-
-/* ---- Refurbished grade variants (two-tier "Obnovljeno") ---- */
-.ot-badge--odlicno {
-  background: var(--badge-odlicno-bg);
-  color: var(--badge-odlicno-text);
-  border-color: var(--badge-odlicno-border);
-}
-
+/* ---- Condition variants ----
+   Unified soft blue/gray "neutral" tone for condition tags on product
+   cards & detail pages (exact replica spec: #f1f5f9 bg / #334155 text).
+   Semantic color-coding is kept elsewhere (homepage condition strip,
+   filter checkboxes) via the raw --badge-*-bg tokens, unaffected here. */
+.ot-badge--novo,
+.ot-badge--outlet,
+.ot-badge--obnovljeno,
+.ot-badge--rabljeno,
+.ot-badge--odlicno,
 .ot-badge--dobro {
-  background: var(--badge-dobro-bg);
-  color: var(--badge-dobro-text);
-  border-color: var(--badge-dobro-border);
+  background: var(--badge-neutral-bg);
+  color: var(--badge-neutral-text);
+  border-color: var(--badge-neutral-border);
 }
 
 /* ---- Solid/pill variants (used on filter chips) ---- */
@@ -138,6 +116,20 @@
   background: var(--ot-text-muted);
 }
 
+/* ---- "Na zalogi" pill badge — used top-left on product cards,
+   next to the condition badge (zelena za zalogo) ---- */
+.ot-badge--instock {
+  background: var(--ot-instock-bg);
+  color: var(--ot-instock-text);
+  border-color: transparent;
+}
+
+.ot-badge--outofstock {
+  background: var(--ot-outofstock-bg);
+  color: var(--ot-outofstock-text);
+  border-color: transparent;
+}
+
 /* ---- Sale/Discount badge ---- */
 .ot-badge--sale {
   background: #fee2e2;
@@ -173,13 +165,14 @@
   z-index: var(--z-raised);
 }
 
-/* ---- Discount percent badge (top-right corner of card) ---- */
+/* ---- Discount percent badge (top-right corner of card) —
+   oranžno/rumena za popuste ---- */
 .ot-badge--discount {
   position: absolute;
   top: var(--space-3);
   right: var(--space-3);
   z-index: var(--z-raised);
-  background: var(--ot-accent);
+  background: var(--ot-discount);
   color: #fff;
   border: none;
   font-size: var(--text-xs);

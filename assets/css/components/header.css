@@ -9,7 +9,7 @@
    ========================================================= */
 .ot-topbar {
   min-height: var(--topbar-h);
-  background: var(--ot-text-primary);
+  background: var(--ot-navy);
   color: rgba(255, 255, 255, 0.92);
   font-size: var(--text-xs);
   font-weight: var(--fw-medium);
@@ -84,6 +84,142 @@
     font-size: var(--text-2xs);
   }
   .ot-topbar__usp-item + .ot-topbar__usp-item::before { display: none; }
+}
+
+/* =========================================================
+   REAL HUMMINGBIRD HEADER — visual polish for the actual
+   PS9 markup (logo / search / account / cart) rendered by
+   header_bottom + the displayTop hook modules. We do not
+   reimplement these — only restyle the real selectors so
+   functionality (AJAX search, cart count, etc.) keeps working.
+   ========================================================= */
+#header .header-bottom {
+  background: #ffffff;
+  border-bottom: 1px solid var(--ot-border);
+}
+
+/* ---- Search bar (ps_searchbar module: #search_widget) ---- */
+#search_widget {
+  max-width: 560px;
+}
+
+#search_widget form {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+#search_widget input[type="text"] {
+  width: 100%;
+  height: 44px;
+  padding: 0 44px 0 40px;
+  border: 1.5px solid var(--ot-border);
+  border-radius: 8px;
+  background: var(--ot-surface);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--ot-text-primary);
+  transition: border-color var(--duration-150), background var(--duration-150);
+}
+
+#search_widget input[type="text"]:focus {
+  outline: none;
+  border-color: var(--ot-primary);
+  background: #fff;
+  box-shadow: var(--shadow-focus);
+}
+
+#search_widget i.search {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ot-text-muted);
+  pointer-events: none;
+  font-size: 20px;
+}
+
+#search_widget i.clear {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ot-text-muted);
+  cursor: pointer;
+}
+
+/* ---- Account / cart action buttons (header-block pattern) ---- */
+.header-block__action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--ot-text-primary);
+  border-radius: var(--radius-md);
+  transition: background var(--duration-150), color var(--duration-150);
+}
+
+.header-block__action-btn:hover {
+  background: var(--ot-primary-subtle);
+  color: var(--ot-primary);
+  text-decoration: none;
+}
+
+.header-block__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  background: var(--ot-primary);
+  color: #fff;
+  font-size: var(--text-2xs);
+  font-weight: var(--fw-bold);
+  border-radius: var(--radius-full);
+}
+
+/* =========================================================
+   MAIN CATEGORY MENU — hardcoded links (see header.tpl)
+   ========================================================= */
+.ot-main-menu {
+  background: #ffffff;
+  border-bottom: 1px solid var(--ot-border);
+  position: relative;
+  z-index: calc(var(--z-sticky) - 1);
+}
+
+.ot-main-menu__list {
+  display: flex;
+  align-items: stretch;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--space-2);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.ot-main-menu__list::-webkit-scrollbar { display: none; }
+
+.ot-main-menu__link {
+  display: flex;
+  align-items: center;
+  height: var(--main-nav-h);
+  padding: 0 var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: var(--fw-medium);
+  color: var(--ot-text-secondary);
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color var(--duration-150), border-color var(--duration-150);
+}
+
+.ot-main-menu__link:hover {
+  color: var(--ot-primary);
+  border-bottom-color: var(--ot-primary);
+  text-decoration: none;
 }
 
 /* =========================================================

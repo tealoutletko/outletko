@@ -22,41 +22,48 @@
    LIGHT MODE (default)
    ========================================================= */
 :root {
-  /* ---- Brand & Accent ---- */
-  --ot-primary:           #0066CC;   /* Professional blue/teal — links & buttons */
-  --ot-primary-dark:      #004C99;
-  --ot-primary-light:     #1a80e0;
-  --ot-primary-subtle:    #e8f2fc;
-  --ot-primary-subtle-2:  #d1e9f8;
+  /* ---- Brand & Accent ----
+     Primary palette: dark navy blue — used for header, buttons, links,
+     and accents (exact replica spec: #0f172a / #1e293b). */
+  --ot-navy:              #0f172a;   /* Darkest navy — header topbar, hover states */
+  --ot-navy-light:        #1e293b;   /* Navy — header main bar, buttons */
+  --ot-primary:           #1e293b;   /* = --ot-navy-light — buttons, links, accents */
+  --ot-primary-dark:      #0f172a;   /* = --ot-navy — hover/active state */
+  --ot-primary-light:     #60a5fa;   /* Light blue accent — icons/links on dark bg */
+  --ot-primary-subtle:    #f1f5f9;   /* Soft blue/gray — badges & hover backgrounds */
+  --ot-primary-subtle-2:  #e2e8f0;
   --ot-teal:              #0d9488;   /* Teal accent — "Obnovljeno - odlično" grade */
   --ot-teal-dark:         #0f766e;
   --ot-accent:            #e31837;   /* Outlet red accent */
-  --ot-success:           #0d6e38;
+  --ot-discount:          #f59e0b;   /* Orange/yellow — discount badges */
+  --ot-success:           #16a34a;
   --ot-warning:           #b45309;
   --ot-info:              #1d4ed8;
 
-  /* ---- Surfaces ---- */
+  /* ---- Surfaces ----
+     Page canvas is light gray; cards/header/dropdowns stay white/navy. */
+  --ot-page-bg:           #f8fafc;   /* Site-wide page background */
   --ot-bg:                #ffffff;
   --ot-bg-alt:            #f8f9fb;
-  --ot-surface:           #f2f4f7;
-  --ot-surface-2:         #e9edf2;
+  --ot-surface:           #f1f5f9;
+  --ot-surface-2:         #e2e8f0;
   --ot-surface-raised:    #ffffff;
-  --ot-overlay:           rgba(0, 0, 0, 0.48);
+  --ot-overlay:           rgba(15, 23, 42, 0.55);
 
   /* ---- Borders ---- */
-  --ot-border:            #dde1e7;
-  --ot-border-subtle:     #eceff4;
-  --ot-border-strong:     #c1c8d4;
-  --ot-border-focus:      #0066CC;
+  --ot-border:            #e2e8f0;
+  --ot-border-subtle:     #eef1f5;
+  --ot-border-strong:     #cbd5e1;
+  --ot-border-focus:      #1e293b;
 
   /* ---- Text ---- */
-  --ot-text-primary:      #0d1117;
-  --ot-text-secondary:    #4a5568;
-  --ot-text-muted:        #8896ab;
-  --ot-text-disabled:     #b0bec5;
+  --ot-text-primary:      #0f172a;
+  --ot-text-secondary:    #475569;
+  --ot-text-muted:        #94a3b8;
+  --ot-text-disabled:     #cbd5e1;
   --ot-text-inverse:      #ffffff;
-  --ot-text-link:         #0066CC;
-  --ot-text-link-hover:   #004C99;
+  --ot-text-link:         #1e293b;
+  --ot-text-link-hover:   #0f172a;
 
   /* ---- Condition Badge Colors ---- */
   --badge-novo-bg:         #d1fae5;   /* Novo — zelena */
@@ -86,12 +93,19 @@
   --badge-dobro-border:    #fdba74;
   --badge-dobro-solid:     #ea580c;
 
-  /* ---- Stock availability ---- */
-  --ot-instock-bg:         #d1fae5;
-  --ot-instock-text:       #065f46;
-  --ot-instock-dot:        #059669;
-  --ot-outofstock-bg:      #f3f4f6;
-  --ot-outofstock-text:    #6b7280;
+  /* ---- Neutral condition badge (product card default) ----
+     "Poudarki/značke" — soft blue/gray tone used for condition tags
+     like "Obnovljeno - odlično" directly on product cards. */
+  --badge-neutral-bg:      #f1f5f9;
+  --badge-neutral-text:    #334155;
+  --badge-neutral-border:  #e2e8f0;
+
+  /* ---- Stock availability — zelena za zalogo ---- */
+  --ot-instock-bg:         #dcfce7;
+  --ot-instock-text:       #16a34a;
+  --ot-instock-dot:        #16a34a;
+  --ot-outofstock-bg:      #f1f5f9;
+  --ot-outofstock-text:    #64748b;
 
   /* ---- Typography ----
      Single modern sans-serif family (Inter) used for both body copy
@@ -170,9 +184,9 @@
   --shadow-lg:   0 10px 30px rgba(0, 0, 0, 0.10), 0 4px 12px rgba(0, 0, 0, 0.05);
   --shadow-xl:   0 20px 48px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.06);
   --shadow-2xl:  0 32px 64px rgba(0, 0, 0, 0.14);
-  --shadow-hover:0 16px 40px rgba(0, 102, 204, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-hover:0 16px 40px rgba(15, 23, 42, 0.10), 0 4px 12px rgba(0, 0, 0, 0.06);
   --shadow-inner:inset 0 2px 4px rgba(0, 0, 0, 0.06);
-  --shadow-focus:0 0 0 3px rgba(0, 102, 204, 0.25);
+  --shadow-focus:0 0 0 3px rgba(96, 165, 250, 0.35);
 
   /* ---- Z-index scale ---- */
   --z-below:    -1;
@@ -199,19 +213,22 @@
   --duration-400:   400ms;
   --duration-500:   500ms;
 
-  /* ---- Layout ---- */
-  --container-max:     1440px;
-  --container-padding: clamp(1rem, 4vw, 2rem);
+  /* ---- Layout ----
+     Container: max-width 1280px, centered, 16px side padding — no element
+     should ever touch the viewport's outer edge. */
+  --container-max:     1280px;
+  --container-padding: 16px;
   --header-h:          64px;
   --topbar-h:          40px;
+  --main-nav-h:        48px;  /* Main horizontal category menu */
   --sidebar-w:         280px;
   --nav-h:             52px;
   --bottom-nav-h:      64px;  /* Mobile bottom bar */
 
   /* ---- Product card ---- */
-  --card-radius:      var(--radius-lg);
-  --card-border:      var(--ot-border);
-  --card-bg:          var(--ot-bg);
+  --card-radius:      10px;
+  --card-border:      #e2e8f0;
+  --card-bg:          #ffffff;
   --card-shadow:      var(--shadow-sm);
   --card-shadow-hover:var(--shadow-hover);
 }
@@ -221,6 +238,7 @@
    ========================================================= */
 @media (prefers-color-scheme: dark) {
   :root {
+    --ot-page-bg:        #0d1117;
     --ot-bg:             #0d1117;
     --ot-bg-alt:         #161b22;
     --ot-surface:        #1c2128;
@@ -248,8 +266,12 @@
     --badge-odlicno-text: #5eead4;
     --badge-dobro-bg:     #431407;
     --badge-dobro-text:   #fdba74;
+    --badge-neutral-bg:   #21262d;
+    --badge-neutral-text: #c9d1d9;
+    --badge-neutral-border: #30363d;
     --ot-instock-bg:      #052e16;
-    --ot-instock-text:    #6ee7b7;
+    --ot-instock-text:    #4ade80;
+    --ot-instock-dot:     #4ade80;
     --ot-outofstock-bg:   #21262d;
     --ot-outofstock-text: #8b949e;
   }
@@ -259,6 +281,7 @@
    FORCED DARK MODE (manual toggle class on <html>)
    ========================================================= */
 html.dark-mode {
+  --ot-page-bg:        #0d1117;
   --ot-bg:             #0d1117;
   --ot-bg-alt:         #161b22;
   --ot-surface:        #1c2128;
@@ -286,8 +309,12 @@ html.dark-mode {
   --badge-odlicno-text: #5eead4;
   --badge-dobro-bg:     #431407;
   --badge-dobro-text:   #fdba74;
+  --badge-neutral-bg:   #21262d;
+  --badge-neutral-text: #c9d1d9;
+  --badge-neutral-border: #30363d;
   --ot-instock-bg:      #052e16;
-  --ot-instock-text:    #6ee7b7;
+  --ot-instock-text:    #4ade80;
+  --ot-instock-dot:     #4ade80;
   --ot-outofstock-bg:   #21262d;
   --ot-outofstock-text: #8b949e;
 }

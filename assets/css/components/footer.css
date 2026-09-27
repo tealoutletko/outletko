@@ -7,8 +7,8 @@
    FOOTER WRAPPER
    ========================================================= */
 .ot-footer {
-  background: #0d1117;
-  color: #8b949e;
+  background: var(--ot-navy);
+  color: #94a3b8;
   margin-top: var(--space-16);
 }
 
@@ -236,8 +236,8 @@
 .ot-newsletter__input::placeholder { color: #484f58; }
 
 .ot-newsletter__input:focus {
-  border-color: var(--ot-primary);
-  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+  border-color: var(--ot-primary-light);
+  box-shadow: var(--shadow-focus);
 }
 
 .ot-newsletter__submit {

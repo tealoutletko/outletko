@@ -60,19 +60,22 @@
   {* ---- Image ---- *}
   <div class="ot-product-card__img-wrap">
 
-    {* Condition badge — top-left *}
-    {if $condition_label}
-      <div class="ot-product-card__badges" style="position:absolute;top:8px;left:8px;z-index:2;display:flex;gap:4px">
-        <span class="ot-badge ot-badge--{$condition_class}">{$condition_label}</span>
+    {* Condition + stock badges — top-left cluster
+       e.g. "Obnovljeno - odlično" (siva) + "Na zalogi" (zelena) *}
+    {if $condition_label || $product.availability == 'available' || $product.availability == 'last_remaining_items'}
+      <div class="ot-product-card__badges" style="position:absolute;top:var(--space-3);left:var(--space-3);z-index:2;display:flex;flex-wrap:wrap;gap:4px;max-width:calc(100% - 24px)">
+        {if $condition_label}
+          <span class="ot-badge ot-badge--{$condition_class}">{$condition_label}</span>
+        {/if}
+        {if $product.availability == 'available' || $product.availability == 'last_remaining_items'}
+          <span class="ot-badge ot-badge--instock">{l s='Na zalogi' d='Shop.Theme.Catalog'}</span>
+        {/if}
       </div>
     {/if}
 
-    {* Discount badge — top-right *}
+    {* Discount badge — top-right (oranžno/rumena) *}
     {if $discount_pct > 0}
-      <div class="ot-product-card__discount-badge"
-           style="position:absolute;top:8px;right:8px;z-index:2;background:#dc2626;color:#fff;padding:3px 8px;border-radius:var(--radius-full);font-size:var(--text-xs);font-weight:var(--fw-bold)">
-        -{$discount_pct}%
-      </div>
+      <span class="ot-badge ot-badge--discount">-{$discount_pct}%</span>
     {/if}
 
     {* Product image with lazy loading *}
@@ -129,6 +132,11 @@
   {* ---- Card body ---- *}
   <div class="ot-product-card__body">
 
+    {* Brand / manufacturer — bold caps (e.g. LENOVO, HP, DELL) *}
+    {if isset($product.manufacturer_name) && $product.manufacturer_name}
+      <span class="ot-product-card__brand">{$product.manufacturer_name|escape:'html':'UTF-8'}</span>
+    {/if}
+
     {* Product name *}
     <a class="ot-product-card__name"
        href="{$product.url|escape:'html':'UTF-8'}"
@@ -138,18 +146,19 @@
     </a>
 
     {* Key specs (Procesor / RAM / SSD) — from product Features, in the order
-       configured in PS9 Admin → Katalog → Funkcije. Reserved space keeps
-       card heights aligned even when a product has fewer specs. *}
+       configured in PS9 Admin → Katalog → Funkcije. Joined into one line
+       with a small gray font; reserved min-height keeps card heights
+       aligned even when a product has fewer specs. *}
     <div class="ot-product-card__specs">
       {if isset($product.features) && $product.features|@count > 0}
-        {foreach from=$product.features item='feature' name='feat'}
-          {if $smarty.foreach.feat.iteration <= 3}
-            <div class="ot-product-card__spec-row">
-              <span class="ot-product-card__spec-key">{$feature.name|truncate:14:'.'|escape:'html':'UTF-8'}</span>
-              <span class="ot-product-card__spec-val">{$feature.value|escape:'html':'UTF-8'}</span>
-            </div>
-          {/if}
-        {/foreach}
+        <p class="ot-product-card__specs-line">
+          {foreach from=$product.features item='feature' name='feat'}
+            {if $smarty.foreach.feat.iteration <= 3}
+              {if !$smarty.foreach.feat.first}<span class="ot-product-card__specs-sep">•</span>{/if}
+              <span>{$feature.value|escape:'html':'UTF-8'}</span>
+            {/if}
+          {/foreach}
+        </p>
       {/if}
     </div>
 

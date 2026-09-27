@@ -11,109 +11,87 @@
 <main id="main" role="main">
 
   {* ================================================================
-     HERO SECTION
+     HERO SECTION — 2 columns, white/light background (no dark blocks)
      ================================================================ *}
   <section class="ot-hero" aria-label="Naslovna slika">
-    <div class="ot-hero__inner">
-      {* Background grid pattern *}
-      <div class="ot-hero__bg" aria-hidden="true"></div>
+    <div class="container">
+      <div class="ot-hero__content">
+        <div class="ot-hero__text">
 
-      <div class="container">
-        <div class="ot-hero__content">
-          <div class="ot-hero__text">
-            {* Condition pill badges *}
-            <div class="ot-hero__badges">
-              <a href="{$link->getCategoryLink(2, null, null, null, null, 'novo')|escape:'html':'UTF-8'}"
-                 class="ot-badge ot-badge--novo">✓ Novo</a>
-              <a href="{$link->getCategoryLink(2, null, null, null, null, 'obnovljeno')|escape:'html':'UTF-8'}"
-                 class="ot-badge ot-badge--obnovljeno">↺ Obnovljeno</a>
-              <a href="{$link->getCategoryLink(2, null, null, null, null, 'outlet')|escape:'html':'UTF-8'}"
-                 class="ot-badge ot-badge--outlet">% Outlet</a>
-              <a href="{$link->getCategoryLink(2, null, null, null, null, 'rabljeno')|escape:'html':'UTF-8'}"
-                 class="ot-badge ot-badge--rabljeno">♻ Rabljeno</a>
-            </div>
-
-            <h1 class="ot-hero__title">
-              Profesionalna IT oprema<br>
-              <span class="ot-hero__title-accent">po ugodnih cenah</span>
-            </h1>
-
-            <p class="ot-hero__subtitle">
-              Prenosniki, namizni računalniki, monitorji in dodatki vodilnih znamk.
-              Nova in obnovljena IT oprema s 12-mesečno garancijo, hitro dostavo
-              in enostavnim vračilom.
-            </p>
-
-            {* Quick category buttons — primary hero CTAs *}
-            <div class="ot-hero__cta">
-              <a href="{$link->getCategoryLink(3)|default:'#'|escape:'html':'UTF-8'}"
-                 class="ot-btn-hero-primary"
-                 id="hero-cta-prenosniki">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M0 21h24"/>
-                </svg>
-                Prenosniki
-              </a>
-              <a href="{$link->getCategoryLink(4)|default:'#'|escape:'html':'UTF-8'}"
-                 class="ot-btn-hero-secondary"
-                 id="hero-cta-namizni">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <rect x="2" y="3" width="14" height="18" rx="2"/><rect x="18" y="9" width="4" height="8" rx="1"/>
-                </svg>
-                Namizni računalniki
-              </a>
-            </div>
-
-            <div class="ot-hero__links">
-              <a href="{$link->getCategoryLink(2)|escape:'html':'UTF-8'}" class="ot-hero__link">
-                Vsi izdelki
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-              <a href="{$link->getPageLink('stores')|escape:'html':'UTF-8'}" class="ot-hero__link">
-                Naše trgovine
-              </a>
-            </div>
-
-            {* Key stats *}
-            <div class="ot-hero__stats" aria-label="Ključne statistike">
-              <div class="ot-hero__stat">
-                <span class="ot-hero__stat-num">5000+</span>
-                <span class="ot-hero__stat-label">Izdelkov</span>
-              </div>
-              <div class="ot-hero__stat-divider" aria-hidden="true"></div>
-              <div class="ot-hero__stat">
-                <span class="ot-hero__stat-num">2</span>
-                <span class="ot-hero__stat-label">Fizični trgovini</span>
-              </div>
-              <div class="ot-hero__stat-divider" aria-hidden="true"></div>
-              <div class="ot-hero__stat">
-                <span class="ot-hero__stat-num">15+</span>
-                <span class="ot-hero__stat-label">Let izkušenj</span>
-              </div>
-            </div>
+          {* Eyebrow badge *}
+          <div class="ot-hero__eyebrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+            </svg>
+            IT oprema in prenosniki • 11.946 izdelkov na zalogi
           </div>
 
-          {* Hero visual - decorative product grid *}
-          <div class="ot-hero__visual" aria-hidden="true">
-            <div class="ot-hero__visual-grid">
-              <div class="ot-hero__visual-card ot-hero__visual-card--1">
-                <div class="ot-hero__visual-icon">💻</div>
-                <span>Prenosniki</span>
-              </div>
-              <div class="ot-hero__visual-card ot-hero__visual-card--2">
-                <div class="ot-hero__visual-icon">🖥️</div>
-                <span>Računalniki</span>
-              </div>
-              <div class="ot-hero__visual-card ot-hero__visual-card--3">
-                <div class="ot-hero__visual-icon">🖨️</div>
-                <span>Tiskalniki</span>
-              </div>
-              <div class="ot-hero__visual-card ot-hero__visual-card--4">
-                <div class="ot-hero__visual-icon">📱</div>
-                <span>Tablice</span>
-              </div>
+          <h1 class="ot-hero__title">
+            Profesionalna IT oprema<br>
+            <span class="ot-hero__title-accent">po ugodnih cenah</span>
+          </h1>
+
+          <p class="ot-hero__subtitle">
+            Prenosniki, namizni računalniki, monitorji in dodatki vodilnih znamk.
+            Nova in obnovljena oprema z 12-mesečno garancijo.
+          </p>
+
+          {* Primary CTA — "Pomagajte mi izbrati" *}
+          <div class="ot-hero__cta">
+            <a href="{$link->getPageLink('contact')|escape:'html':'UTF-8'}"
+               class="ot-btn-hero-primary"
+               id="hero-cta-help">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 1 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+              Pomagajte mi izbrati
+            </a>
+          </div>
+
+          {* Quick filter chips *}
+          <div class="ot-hero__quick-filters" aria-label="Hitro filtriranje po kategoriji">
+            <span class="ot-hero__quick-label">Hitro filtriraj:</span>
+            <a href="{$link->getCategoryLink(3)|default:'#'|escape:'html':'UTF-8'}" class="ot-chip-filter" id="hero-chip-prenosniki">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M0 21h24"/>
+              </svg>
+              Prenosniki
+            </a>
+            <a href="{$link->getCategoryLink(4)|default:'#'|escape:'html':'UTF-8'}" class="ot-chip-filter" id="hero-chip-namizni">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <rect x="2" y="3" width="14" height="18" rx="2"/><rect x="18" y="9" width="4" height="8" rx="1"/>
+              </svg>
+              Namizni računalniki
+            </a>
+          </div>
+
+          {* Key stats *}
+          <div class="ot-hero__stats" aria-label="Ključne statistike">
+            <div class="ot-hero__stat">
+              <span class="ot-hero__stat-num">5000+</span>
+              <span class="ot-hero__stat-label">Izdelkov</span>
+            </div>
+            <div class="ot-hero__stat-divider" aria-hidden="true"></div>
+            <div class="ot-hero__stat">
+              <span class="ot-hero__stat-num">2</span>
+              <span class="ot-hero__stat-label">Fizični trgovini</span>
+            </div>
+            <div class="ot-hero__stat-divider" aria-hidden="true"></div>
+            <div class="ot-hero__stat">
+              <span class="ot-hero__stat-num">15+</span>
+              <span class="ot-hero__stat-label">Let izkušenj</span>
             </div>
           </div>
+        </div>
+
+        {* Hero visual — real product photography, not decorative icon blocks *}
+        <div class="ot-hero__visual">
+          <img src="{$urls.theme_assets}img/banner-prenosniki.jpg"
+               alt="Prenosniki in namizni računalniki na zalogi"
+               class="ot-hero__visual-img"
+               width="1200" height="250"
+               loading="eager"
+               fetchpriority="high">
         </div>
       </div>
     </div>
@@ -129,7 +107,7 @@
      ================================================================ *}
   <section class="ot-home-cats" aria-label="Kategorije izdelkov">
     <div class="container">
-      <h2 class="ot-section-title ot-section-title--underline">Kategorije</h2>
+      <h2 class="ot-section-title ot-section-title--underline">Razišči po kategorijah</h2>
       <nav class="ot-cat-card-grid" aria-label="Glavne kategorije">
 
         <a href="{$link->getCategoryLink(3)|default:'#'|escape:'html':'UTF-8'}"
@@ -143,7 +121,10 @@
           <span class="ot-cat-card__count">
             {if isset($category_product_counts.3)}{$category_product_counts.3|escape:'html':'UTF-8'} izdelkov{else}Oglejte si izdelke{/if}
           </span>
-          <span class="ot-cat-card__arrow" aria-hidden="true">→</span>
+          <span class="ot-cat-card__cta">
+            Poglej ponudbo
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
         </a>
 
         <a href="{$link->getCategoryLink(4)|default:'#'|escape:'html':'UTF-8'}"
@@ -157,7 +138,10 @@
           <span class="ot-cat-card__count">
             {if isset($category_product_counts.4)}{$category_product_counts.4|escape:'html':'UTF-8'} izdelkov{else}Oglejte si izdelke{/if}
           </span>
-          <span class="ot-cat-card__arrow" aria-hidden="true">→</span>
+          <span class="ot-cat-card__cta">
+            Poglej ponudbo
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
         </a>
 
         <a href="{$link->getCategoryLink(5)|default:'#'|escape:'html':'UTF-8'}"
@@ -171,7 +155,10 @@
           <span class="ot-cat-card__count">
             {if isset($category_product_counts.5)}{$category_product_counts.5|escape:'html':'UTF-8'} izdelkov{else}Oglejte si izdelke{/if}
           </span>
-          <span class="ot-cat-card__arrow" aria-hidden="true">→</span>
+          <span class="ot-cat-card__cta">
+            Poglej ponudbo
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
         </a>
 
         <a href="{$link->getCategoryLink(9)|default:'#'|escape:'html':'UTF-8'}"
@@ -185,7 +172,10 @@
           <span class="ot-cat-card__count">
             {if isset($category_product_counts.9)}{$category_product_counts.9|escape:'html':'UTF-8'} izdelkov{else}Oglejte si izdelke{/if}
           </span>
-          <span class="ot-cat-card__arrow" aria-hidden="true">→</span>
+          <span class="ot-cat-card__cta">
+            Poglej ponudbo
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
         </a>
 
         <a href="{$link->getCategoryLink(12)|default:'#'|escape:'html':'UTF-8'}"
@@ -200,7 +190,10 @@
           <span class="ot-cat-card__count">
             {if isset($category_product_counts.12)}{$category_product_counts.12|escape:'html':'UTF-8'} izdelkov{else}Oglejte si izdelke{/if}
           </span>
-          <span class="ot-cat-card__arrow" aria-hidden="true">→</span>
+          <span class="ot-cat-card__cta">
+            Poglej ponudbo
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
         </a>
 
         <a href="{$link->getCategoryLink(8)|default:'#'|escape:'html':'UTF-8'}"
@@ -216,7 +209,10 @@
           <span class="ot-cat-card__count">
             {if isset($category_product_counts.8)}{$category_product_counts.8|escape:'html':'UTF-8'} izdelkov{else}Oglejte si izdelke{/if}
           </span>
-          <span class="ot-cat-card__arrow" aria-hidden="true">→</span>
+          <span class="ot-cat-card__cta">
+            Poglej ponudbo
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
         </a>
 
       </nav>
@@ -342,7 +338,7 @@
           </div>
           <div>
             <div class="ot-trust-item__label">Hitra dostava</div>
-            <div class="ot-trust-item__sub">2–3 delovne dni</div>
+            <div class="ot-trust-item__sub">Brezplačna nad 100 EUR</div>
           </div>
         </div>
 
@@ -368,7 +364,7 @@
           </div>
           <div>
             <div class="ot-trust-item__label">14 dni za vračilo</div>
-            <div class="ot-trust-item__sub">Brez navajanja razlogov</div>
+            <div class="ot-trust-item__sub">Brez vprašanj, po zakonu</div>
           </div>
         </div>
       </div>
@@ -389,38 +385,29 @@
    ================================================================ *}
 {block name='head' append}
 <style>
-/* ---- Hero ---- */
-.ot-hero { background: linear-gradient(135deg,#0d1117 0%,#1a2744 60%,#0d2247 100%); color:#fff; padding: 80px 0 60px; overflow:hidden; position:relative; }
-.ot-hero__bg { position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(0,102,204,0.15) 0%,transparent 60%),radial-gradient(circle at 80% 20%,rgba(0,102,204,0.08) 0%,transparent 50%);pointer-events:none; }
-.ot-hero__inner { position:relative; }
-.ot-hero__content { display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center; }
-.ot-hero__badges { display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px; }
-.ot-hero__title { font-family:var(--font-display);font-size:clamp(2rem,4vw,3.5rem);font-weight:800;line-height:1.1;letter-spacing:-0.03em;color:#fff;margin:0 0 16px; }
-.ot-hero__title-accent { color:var(--ot-primary-light); }
-.ot-hero__subtitle { font-size:1.125rem;color:rgba(255,255,255,0.75);line-height:1.6;max-width:460px;margin:0 0 32px; }
-.ot-hero__cta { display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px; }
+/* ---- Hero — 2 columns, white/very light background, no dark blocks ---- */
+.ot-hero { background: linear-gradient(180deg,#ffffff 0%,#f8fafc 100%); color:var(--ot-text-primary); padding: 64px 0 56px; overflow:hidden; position:relative; }
+.ot-hero__content { display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center; }
+.ot-hero__eyebrow { display:inline-flex;align-items:center;gap:8px;padding:7px 14px 7px 12px;background:var(--ot-primary-subtle);border:1px solid var(--ot-border);border-radius:999px;font-size:0.8125rem;font-weight:600;color:var(--ot-primary);margin-bottom:22px; }
+.ot-hero__eyebrow svg { color:var(--ot-primary);flex-shrink:0; }
+.ot-hero__title { font-family:var(--font-display);font-size:clamp(2rem,4vw,3.25rem);font-weight:800;line-height:1.1;letter-spacing:-0.03em;color:var(--ot-text-primary);margin:0 0 16px; }
+.ot-hero__title-accent { color:var(--ot-primary); }
+.ot-hero__subtitle { font-size:1.125rem;color:var(--ot-text-secondary);line-height:1.6;max-width:480px;margin:0 0 28px; }
+.ot-hero__cta { display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px; }
 .ot-btn-hero-primary { display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 28px;background:var(--ot-primary);color:#fff;border-radius:var(--radius-lg);font-weight:700;font-size:1rem;text-decoration:none;transition:all 0.2s;border:2px solid transparent; }
-.ot-btn-hero-primary:hover { background:var(--ot-primary-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,102,204,0.4);text-decoration:none;color:#fff; }
-.ot-btn-hero-secondary { display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 24px;background:transparent;color:rgba(255,255,255,0.85);border:2px solid rgba(255,255,255,0.25);border-radius:var(--radius-lg);font-weight:600;font-size:1rem;text-decoration:none;transition:all 0.2s;backdrop-filter:blur(4px); }
-.ot-btn-hero-secondary:hover { border-color:rgba(255,255,255,0.6);color:#fff;background:rgba(255,255,255,0.08);text-decoration:none; }
-.ot-hero__links { display:flex;gap:20px;flex-wrap:wrap;margin-bottom:36px; }
-.ot-hero__link { display:inline-flex;align-items:center;gap:6px;font-size:0.875rem;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;transition:color 0.2s; }
-.ot-hero__link:hover { color:#fff;text-decoration:none; }
+.ot-btn-hero-primary:hover { background:var(--ot-primary-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(15,23,42,0.25);text-decoration:none;color:#fff; }
+.ot-hero__quick-filters { display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:32px; }
+.ot-hero__quick-label { font-size:0.8125rem;font-weight:600;color:var(--ot-text-muted); }
+.ot-chip-filter { display:inline-flex;align-items:center;gap:7px;padding:9px 16px;background:#fff;border:1.5px solid var(--ot-border);border-radius:999px;font-size:0.875rem;font-weight:600;color:var(--ot-text-primary);text-decoration:none;transition:all 0.2s; }
+.ot-chip-filter:hover { border-color:var(--ot-primary);background:var(--ot-primary-subtle);color:var(--ot-primary);text-decoration:none; }
 .ot-hero__stats { display:flex;align-items:center;gap:20px; }
 .ot-hero__stat { text-align:center; }
-.ot-hero__stat-num { display:block;font-family:var(--font-display);font-size:1.75rem;font-weight:800;color:#fff; }
-.ot-hero__stat-label { font-size:0.75rem;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.08em; }
-.ot-hero__stat-divider { width:1px;height:40px;background:rgba(255,255,255,0.15); }
-/* Hero visual */
-.ot-hero__visual-grid { display:grid;grid-template-columns:1fr 1fr;gap:16px; }
-.ot-hero__visual-card { background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;display:flex;flex-direction:column;align-items:center;gap:12px;color:rgba(255,255,255,0.8);font-size:0.875rem;font-weight:500;backdrop-filter:blur(8px);transition:all 0.3s; }
-.ot-hero__visual-card:hover { background:rgba(0,102,204,0.2);border-color:rgba(0,102,204,0.4);transform:translateY(-4px); }
-.ot-hero__visual-icon { font-size:2.5rem; }
-.ot-hero__visual-card--1 { animation:floatCard 3s ease-in-out infinite; }
-.ot-hero__visual-card--2 { animation:floatCard 3s ease-in-out infinite 0.5s; }
-.ot-hero__visual-card--3 { animation:floatCard 3s ease-in-out infinite 1s; }
-.ot-hero__visual-card--4 { animation:floatCard 3s ease-in-out infinite 1.5s; }
-@keyframes floatCard { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+.ot-hero__stat-num { display:block;font-family:var(--font-display);font-size:1.75rem;font-weight:800;color:var(--ot-text-primary); }
+.ot-hero__stat-label { font-size:0.75rem;color:var(--ot-text-muted);text-transform:uppercase;letter-spacing:0.08em; }
+.ot-hero__stat-divider { width:1px;height:40px;background:var(--ot-border); }
+/* Hero visual — real product photo, rounded + shadow */
+.ot-hero__visual { border-radius:var(--radius-2xl);overflow:hidden;box-shadow:var(--shadow-xl);aspect-ratio:4/3; }
+.ot-hero__visual-img { width:100%;height:100%;object-fit:cover;display:block; }
 
 /* ---- Category card grid (with product counts) ---- */
 .ot-home-cats { padding:60px 0 40px; }
@@ -443,11 +430,15 @@
 .ot-cat-card:hover .ot-cat-card__icon { background:var(--ot-primary); color:#fff; }
 .ot-cat-card__name { font-size:1.0625rem;font-weight:700;color:var(--ot-text-primary);font-family:var(--font-display); }
 .ot-cat-card__count { font-size:0.8125rem;color:var(--ot-text-muted);font-weight:500; }
-.ot-cat-card__arrow {
-  position:absolute;top:20px;right:20px;color:var(--ot-text-muted);
-  transition:transform 0.2s,color 0.2s;
+.ot-cat-card__cta {
+  display:flex;align-items:center;gap:6px;margin-top:14px;padding-top:14px;
+  border-top:1px solid var(--ot-border-subtle);width:100%;
+  font-size:0.8125rem;font-weight:700;color:var(--ot-primary);
+  transition:gap 0.2s;
 }
-.ot-cat-card:hover .ot-cat-card__arrow { transform:translate(4px,-4px);color:var(--ot-primary); }
+.ot-cat-card:hover .ot-cat-card__cta { gap:10px; }
+.ot-cat-card__cta svg { transition:transform 0.2s; }
+.ot-cat-card:hover .ot-cat-card__cta svg { transform:translateX(2px); }
 
 /* ---- Section header ---- */
 .ot-section-header { display:flex;align-items:center;justify-content:space-between;margin-bottom:24px; }
@@ -470,7 +461,7 @@
 .ot-condition-strip__sub { font-size:0.75rem;opacity:0.8;margin-top:2px; }
 
 /* ---- Responsive ---- */
-@media (max-width:1023px) { .ot-hero__content{grid-template-columns:1fr;gap:40px} .ot-hero__visual{display:none} .ot-cat-card-grid{grid-template-columns:repeat(2,1fr)} .ot-condition-strip__grid{grid-template-columns:repeat(2,1fr)} }
-@media (max-width:767px) { .ot-hero{padding:48px 0 40px} .ot-cat-card-grid{grid-template-columns:1fr} .ot-condition-strip__grid{grid-template-columns:1fr} .ot-hero__stats{display:none} .ot-hero__links{gap:14px} }
+@media (max-width:1023px) { .ot-hero__content{grid-template-columns:1fr;gap:32px} .ot-hero__visual{order:-1;aspect-ratio:16/7} .ot-cat-card-grid{grid-template-columns:repeat(2,1fr)} .ot-condition-strip__grid{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:767px) { .ot-hero{padding:40px 0 36px} .ot-cat-card-grid{grid-template-columns:1fr} .ot-condition-strip__grid{grid-template-columns:1fr} .ot-hero__stats{display:none} .ot-hero__quick-filters{gap:8px} }
 </style>
 {/block}
