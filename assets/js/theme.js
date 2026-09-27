@@ -577,7 +577,7 @@ const Toast = {
     const toast = document.createElement('div');
     toast.textContent = message;
     Object.assign(toast.style, {
-      background: type === 'success' ? '#16a34a' : type === 'error' ? '#dc2626' : '#1e293b',
+      background: type === 'success' ? '#16a34a' : type === 'error' ? '#dc2626' : '#15803d',
       color: '#fff',
       padding: '10px 16px',
       borderRadius: '8px',

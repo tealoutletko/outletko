@@ -395,7 +395,7 @@
 .ot-hero__subtitle { font-size:1.125rem;color:var(--ot-text-secondary);line-height:1.6;max-width:480px;margin:0 0 28px; }
 .ot-hero__cta { display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px; }
 .ot-btn-hero-primary { display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 28px;background:var(--ot-primary);color:#fff;border-radius:var(--radius-lg);font-weight:700;font-size:1rem;text-decoration:none;transition:all 0.2s;border:2px solid transparent; }
-.ot-btn-hero-primary:hover { background:var(--ot-primary-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(15,23,42,0.25);text-decoration:none;color:#fff; }
+.ot-btn-hero-primary:hover { background:var(--ot-primary-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(20,83,45,0.3);text-decoration:none;color:#fff; }
 .ot-hero__quick-filters { display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:32px; }
 .ot-hero__quick-label { font-size:0.8125rem;font-weight:600;color:var(--ot-text-muted); }
 .ot-chip-filter { display:inline-flex;align-items:center;gap:7px;padding:9px 16px;background:#fff;border:1.5px solid var(--ot-border);border-radius:999px;font-size:0.875rem;font-weight:600;color:var(--ot-text-primary);text-decoration:none;transition:all 0.2s; }

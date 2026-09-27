@@ -23,15 +23,14 @@
    ========================================================= */
 :root {
   /* ---- Brand & Accent ----
-     Primary palette: dark navy blue — used for header, buttons, links,
-     and accents (exact replica spec: #0f172a / #1e293b). */
-  --ot-navy:              #0f172a;   /* Darkest navy — header topbar, hover states */
-  --ot-navy-light:        #1e293b;   /* Navy — header main bar, buttons */
-  --ot-primary:           #1e293b;   /* = --ot-navy-light — buttons, links, accents */
-  --ot-primary-dark:      #0f172a;   /* = --ot-navy — hover/active state */
-  --ot-primary-light:     #60a5fa;   /* Light blue accent — icons/links on dark bg */
-  --ot-primary-subtle:    #f1f5f9;   /* Soft blue/gray — badges & hover backgrounds */
-  --ot-primary-subtle-2:  #e2e8f0;
+     Primary palette: green — used for header, buttons, links, and accents. */
+  --ot-navy:              #14532d;   /* Darkest green — header topbar, footer, hover states */
+  --ot-navy-light:        #15803d;   /* Green — header main bar, buttons */
+  --ot-primary:           #15803d;   /* = --ot-navy-light — buttons, links, accents */
+  --ot-primary-dark:      #14532d;   /* = --ot-navy — hover/active state */
+  --ot-primary-light:     #4ade80;   /* Light green accent — icons/links on dark bg */
+  --ot-primary-subtle:    #f0fdf4;   /* Soft green tint — badges & hover backgrounds */
+  --ot-primary-subtle-2:  #dcfce7;
   --ot-teal:              #0d9488;   /* Teal accent — "Obnovljeno - odlično" grade */
   --ot-teal-dark:         #0f766e;
   --ot-accent:            #e31837;   /* Outlet red accent */
@@ -54,7 +53,7 @@
   --ot-border:            #e2e8f0;
   --ot-border-subtle:     #eef1f5;
   --ot-border-strong:     #cbd5e1;
-  --ot-border-focus:      #1e293b;
+  --ot-border-focus:      #15803d;
 
   /* ---- Text ---- */
   --ot-text-primary:      #0f172a;
@@ -62,8 +61,8 @@
   --ot-text-muted:        #94a3b8;
   --ot-text-disabled:     #cbd5e1;
   --ot-text-inverse:      #ffffff;
-  --ot-text-link:         #1e293b;
-  --ot-text-link-hover:   #0f172a;
+  --ot-text-link:         #15803d;
+  --ot-text-link-hover:   #14532d;
 
   /* ---- Condition Badge Colors ---- */
   --badge-novo-bg:         #d1fae5;   /* Novo — zelena */
@@ -184,9 +183,9 @@
   --shadow-lg:   0 10px 30px rgba(0, 0, 0, 0.10), 0 4px 12px rgba(0, 0, 0, 0.05);
   --shadow-xl:   0 20px 48px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.06);
   --shadow-2xl:  0 32px 64px rgba(0, 0, 0, 0.14);
-  --shadow-hover:0 16px 40px rgba(15, 23, 42, 0.10), 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-hover:0 16px 40px rgba(20, 83, 45, 0.14), 0 4px 12px rgba(0, 0, 0, 0.06);
   --shadow-inner:inset 0 2px 4px rgba(0, 0, 0, 0.06);
-  --shadow-focus:0 0 0 3px rgba(96, 165, 250, 0.35);
+  --shadow-focus:0 0 0 3px rgba(74, 222, 128, 0.40);
 
   /* ---- Z-index scale ---- */
   --z-below:    -1;
@@ -251,8 +250,8 @@
     --ot-text-secondary: #8b949e;
     --ot-text-muted:     #6e7681;
     --ot-text-disabled:  #484f58;
-    --ot-primary-subtle: #1c3553;
-    --ot-primary-subtle-2: #162a44;
+    --ot-primary-subtle: #0f2e1c;
+    --ot-primary-subtle-2: #123321;
     --card-bg:           #1e242c;
     --badge-novo-bg:      #052e16;
     --badge-novo-text:    #6ee7b7;
@@ -294,8 +293,8 @@ html.dark-mode {
   --ot-text-secondary: #8b949e;
   --ot-text-muted:     #6e7681;
   --ot-text-disabled:  #484f58;
-  --ot-primary-subtle: #1c3553;
-  --ot-primary-subtle-2: #162a44;
+  --ot-primary-subtle: #0f2e1c;
+  --ot-primary-subtle-2: #123321;
   --card-bg:           #1e242c;
   --badge-novo-bg:      #052e16;
   --badge-novo-text:    #6ee7b7;
