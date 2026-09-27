@@ -1,10 +1,11 @@
 /*
- * Outletko Teal — CSS Design Tokens
+ * Outletko DCC — CSS Design Tokens
  * PrestaShop 9 Hummingbird Child Theme — v1.0.0
  * TEAL d.o.o., Laško
  * Load order: priority 5 (before all component CSS)
  *
- * Inspired by modern Lenovo/Dell ecommerce + teal.publishwall.com
+ * Nordic minimalist B2B look — circular economy / refurbished IT hardware,
+ * in the visual style of Foxway (foxway.com/foxway.dk) and DCC (dcc.dk).
  * ================================================================ */
 
 /* ---- Google Fonts (self-hosted) ----
@@ -23,46 +24,50 @@
    ========================================================= */
 :root {
   /* ---- Brand & Accent ----
-     Primary palette: green — used for header, buttons, links, and accents. */
-  --ot-navy:              #14532d;   /* Darkest green — header topbar, footer, hover states */
-  --ot-navy-light:        #15803d;   /* Green — header main bar, buttons */
-  --ot-primary:           #15803d;   /* = --ot-navy-light — buttons, links, accents */
-  --ot-primary-dark:      #14532d;   /* = --ot-navy — hover/active state */
-  --ot-primary-light:     #4ade80;   /* Light green accent — icons/links on dark bg */
-  --ot-primary-subtle:    #f0fdf4;   /* Soft green tint — badges & hover backgrounds */
-  --ot-primary-subtle-2:  #dcfce7;
-  --ot-teal:              #0d9488;   /* Teal accent — "Obnovljeno - odlično" grade */
+     Nordic B2B palette: dark graphite + deep Scandinavian petrol-green for
+     header/structure, fresh green reserved for accents — stock/Grade A
+     badges and CTA buttons (Foxway / DCC visual direction). */
+  --ot-navy:              #111827;   /* Graphite — header topbar, footer, darkest hover */
+  --ot-navy-light:        #0f3e36;   /* Petrol-green — header main bar */
+  --ot-primary:           #059669;   /* Fresh green — CTA buttons, links, accents */
+  --ot-primary-dark:      #047857;   /* Darker green — hover/active state */
+  --ot-primary-light:     #34d399;   /* Light green accent — icons/links on dark bg */
+  --ot-primary-subtle:    #ecfdf5;   /* Soft green tint — badges & hover backgrounds */
+  --ot-primary-subtle-2:  #d1fae5;
+  --ot-teal:              #0d9488;   /* Secondary teal accent (unused by default) */
   --ot-teal-dark:         #0f766e;
-  --ot-accent:            #e31837;   /* Outlet red accent */
+  --ot-accent:            #e31837;   /* Outlet/wishlist red accent */
   --ot-discount:          #f59e0b;   /* Orange/yellow — discount badges */
-  --ot-success:           #16a34a;
+  --ot-success:           #059669;
   --ot-warning:           #b45309;
   --ot-info:              #1d4ed8;
 
   /* ---- Surfaces ----
-     Page canvas is light gray; cards/header/dropdowns stay white/navy. */
-  --ot-page-bg:           #f8fafc;   /* Site-wide page background */
+     Page canvas is pure white; alternating sections use very light gray
+     for contrast between blocks (exact replica spec: #F9FAFB / #F3F4F6). */
+  --ot-page-bg:           #ffffff;   /* Site-wide page background — čisto belo */
+  --ot-section-alt-bg:    #f9fafb;   /* Alternating section background */
   --ot-bg:                #ffffff;
-  --ot-bg-alt:            #f8f9fb;
-  --ot-surface:           #f1f5f9;
-  --ot-surface-2:         #e2e8f0;
+  --ot-bg-alt:            #f9fafb;
+  --ot-surface:           #f3f4f6;
+  --ot-surface-2:         #e5e7eb;
   --ot-surface-raised:    #ffffff;
-  --ot-overlay:           rgba(15, 23, 42, 0.55);
+  --ot-overlay:           rgba(17, 24, 39, 0.55);
 
   /* ---- Borders ---- */
-  --ot-border:            #e2e8f0;
-  --ot-border-subtle:     #eef1f5;
-  --ot-border-strong:     #cbd5e1;
-  --ot-border-focus:      #15803d;
+  --ot-border:            #e5e7eb;
+  --ot-border-subtle:     #f3f4f6;
+  --ot-border-strong:     #d1d5db;
+  --ot-border-focus:      #059669;
 
   /* ---- Text ---- */
-  --ot-text-primary:      #0f172a;
-  --ot-text-secondary:    #475569;
-  --ot-text-muted:        #94a3b8;
-  --ot-text-disabled:     #cbd5e1;
+  --ot-text-primary:      #111827;
+  --ot-text-secondary:    #4b5563;
+  --ot-text-muted:        #9ca3af;
+  --ot-text-disabled:     #d1d5db;
   --ot-text-inverse:      #ffffff;
-  --ot-text-link:         #15803d;
-  --ot-text-link-hover:   #14532d;
+  --ot-text-link:         #059669;
+  --ot-text-link-hover:   #047857;
 
   /* ---- Condition Badge Colors ---- */
   --badge-novo-bg:         #d1fae5;   /* Novo — zelena */
@@ -93,18 +98,32 @@
   --badge-dobro-solid:     #ea580c;
 
   /* ---- Neutral condition badge (product card default) ----
-     "Poudarki/značke" — soft blue/gray tone used for condition tags
-     like "Obnovljeno - odlično" directly on product cards. */
-  --badge-neutral-bg:      #f1f5f9;
-  --badge-neutral-text:    #334155;
-  --badge-neutral-border:  #e2e8f0;
+     Soft gray tone used for generic condition tags on product cards. */
+  --badge-neutral-bg:      #f3f4f6;
+  --badge-neutral-text:    #374151;
+  --badge-neutral-border:  #e5e7eb;
 
-  /* ---- Stock availability — zelena za zalogo ---- */
-  --ot-instock-bg:         #dcfce7;
-  --ot-instock-text:       #16a34a;
-  --ot-instock-dot:        #16a34a;
-  --ot-outofstock-bg:      #f1f5f9;
-  --ot-outofstock-text:    #64748b;
+  /* ---- Grade A / Grade B (circular/refurbished grading) ----
+     "Circular / Refurbished Grade A" — fresh green per spec; Grade B
+     stays neutral gray to visually rank below Grade A. */
+  --badge-grade-a-bg:      #d1fae5;
+  --badge-grade-a-text:    #047857;
+  --badge-grade-a-border:  #6ee7b7;
+  --badge-grade-a-solid:   #059669;
+  --badge-grade-b-bg:      #f3f4f6;
+  --badge-grade-b-text:    #374151;
+  --badge-grade-b-border:  #e5e7eb;
+  --badge-grade-b-solid:   #6b7280;
+
+  /* ---- Stock availability — sveža zelena za oznake zaloge ---- */
+  --ot-instock-bg:         #d1fae5;
+  --ot-instock-text:       #047857;
+  --ot-instock-dot:        #059669;
+  --ot-outofstock-bg:      #f3f4f6;
+  --ot-outofstock-text:    #6b7280;
+
+  /* ---- B2B pricing (price excl. VAT line on product cards) ---- */
+  --ot-price-b2b-text:     #6b7280;
 
   /* ---- Typography ----
      Single modern sans-serif family (Inter) used for both body copy
@@ -183,9 +202,9 @@
   --shadow-lg:   0 10px 30px rgba(0, 0, 0, 0.10), 0 4px 12px rgba(0, 0, 0, 0.05);
   --shadow-xl:   0 20px 48px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.06);
   --shadow-2xl:  0 32px 64px rgba(0, 0, 0, 0.14);
-  --shadow-hover:0 16px 40px rgba(20, 83, 45, 0.14), 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-hover:0 16px 40px rgba(17, 24, 39, 0.10), 0 4px 12px rgba(0, 0, 0, 0.05);
   --shadow-inner:inset 0 2px 4px rgba(0, 0, 0, 0.06);
-  --shadow-focus:0 0 0 3px rgba(74, 222, 128, 0.40);
+  --shadow-focus:0 0 0 3px rgba(52, 211, 153, 0.40);
 
   /* ---- Z-index scale ---- */
   --z-below:    -1;
@@ -226,7 +245,7 @@
 
   /* ---- Product card ---- */
   --card-radius:      10px;
-  --card-border:      #e2e8f0;
+  --card-border:      #e5e7eb;
   --card-bg:          #ffffff;
   --card-shadow:      var(--shadow-sm);
   --card-shadow-hover:var(--shadow-hover);
@@ -268,6 +287,10 @@
     --badge-neutral-bg:   #21262d;
     --badge-neutral-text: #c9d1d9;
     --badge-neutral-border: #30363d;
+    --badge-grade-a-bg:   #052e16;
+    --badge-grade-a-text: #4ade80;
+    --badge-grade-b-bg:   #21262d;
+    --badge-grade-b-text: #c9d1d9;
     --ot-instock-bg:      #052e16;
     --ot-instock-text:    #4ade80;
     --ot-instock-dot:     #4ade80;
@@ -311,6 +334,10 @@ html.dark-mode {
   --badge-neutral-bg:   #21262d;
   --badge-neutral-text: #c9d1d9;
   --badge-neutral-border: #30363d;
+  --badge-grade-a-bg:   #052e16;
+  --badge-grade-a-text: #4ade80;
+  --badge-grade-b-bg:   #21262d;
+  --badge-grade-b-text: #c9d1d9;
   --ot-instock-bg:      #052e16;
   --ot-instock-text:    #4ade80;
   --ot-instock-dot:     #4ade80;
