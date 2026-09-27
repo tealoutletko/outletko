@@ -149,12 +149,16 @@
   text-decoration: none;
 }
 
-/* ---- Key specs mini-table ---- */
+/* ---- Key specs mini-table ----
+   Reserved space below the title for key specs (procesor, RAM, SSD).
+   min-height keeps card heights consistent even when a product has
+   fewer than 3 features. */
 .ot-product-card__specs {
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
   flex: 1;
+  min-height: 54px;
 }
 
 .ot-product-card__spec-row {
@@ -168,7 +172,7 @@
   color: var(--ot-text-muted);
   flex-shrink: 0;
   font-weight: var(--fw-medium);
-  min-width: 48px;
+  min-width: 60px;
 }
 
 .ot-product-card__spec-val {
@@ -206,8 +210,8 @@
 
 .ot-product-card__price {
   font-family: var(--font-display);
-  font-size: var(--text-xl);
-  font-weight: var(--fw-bold);
+  font-size: var(--text-2xl);
+  font-weight: var(--fw-extrabold);
   color: var(--ot-text-primary);
   line-height: 1;
   letter-spacing: var(--ls-tight);
@@ -219,6 +223,11 @@
   font-weight: var(--fw-normal);
   display: block;
   margin-top: 2px;
+}
+
+/* ---- Stock label under price ---- */
+.ot-product-card__stock {
+  margin-top: var(--space-1);
 }
 
 /* ---- Add to cart button ---- */

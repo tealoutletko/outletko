@@ -101,12 +101,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="//outletko.si">
 
-  {* ---- Preload self-hosted fonts ---- *}
+  {* ---- Preload self-hosted font (single family: Inter) ---- *}
   <link rel="preload"
         href="{$urls.theme_assets}fonts/inter-variable.woff2"
-        as="font" type="font/woff2" crossorigin>
-  <link rel="preload"
-        href="{$urls.theme_assets}fonts/outfit-variable.woff2"
         as="font" type="font/woff2" crossorigin>
 
   {* ---- Preload critical CSS (variables already loaded by theme.yml priority 5) ---- *}

@@ -109,14 +109,35 @@
       {* ---- RIGHT: PRODUCT INFO ---- *}
       <div class="ot-product-info">
 
-        {* Badges row *}
+        {* Badges row —
+           "Obnovljeno" (refurbished) is shown as a two-tier grade — "Obnovljeno - odlično"
+           (teal) or "Obnovljeno - dobro" (orange) — read from a product Feature named
+           "Razred" / "Ocena" / "Grade". Falls back to a generic blue "Obnovljeno" badge. *}
         <div class="ot-product-info__badges">
           {if isset($product.condition) && $product.condition}
             {assign var='cond' value=$product.condition|lower}
             {if $cond == 'new' || $cond == 'novo'}
               <span class="ot-badge ot-badge--novo">✓ Novo</span>
             {elseif $cond == 'refurbished' || $cond == 'obnovljeno'}
-              <span class="ot-badge ot-badge--obnovljeno">↺ Obnovljeno</span>
+              {assign var='grade_label' value='Obnovljeno'}
+              {assign var='grade_class' value='obnovljeno'}
+              {assign var='grade_icon' value='↺'}
+              {if isset($product.features) && $product.features|@count > 0}
+                {foreach from=$product.features item='gradefeat'}
+                  {assign var='grade_name' value=$gradefeat.name|lower}
+                  {assign var='grade_val' value=$gradefeat.value|lower}
+                  {if $grade_name|strstr:'razred' || $grade_name|strstr:'ocena' || $grade_name|strstr:'grade'}
+                    {if $grade_val|strstr:'odlič' || $grade_val == 'a' || $grade_val == 'a+'}
+                      {assign var='grade_label' value='Obnovljeno - odlično'}
+                      {assign var='grade_class' value='odlicno'}
+                    {elseif $grade_val|strstr:'dobro' || $grade_val == 'b'}
+                      {assign var='grade_label' value='Obnovljeno - dobro'}
+                      {assign var='grade_class' value='dobro'}
+                    {/if}
+                  {/if}
+                {/foreach}
+              {/if}
+              <span class="ot-badge ot-badge--{$grade_class}">{$grade_icon} {$grade_label|escape:'html':'UTF-8'}</span>
             {elseif $cond == 'used' || $cond == 'rabljeno'}
               <span class="ot-badge ot-badge--rabljeno">♻ Rabljeno</span>
             {elseif $cond == 'outlet' || $cond == 'neprodano'}
@@ -157,12 +178,34 @@
           </div>
           <div class="ot-product-price__tax">{l s='z DDV' d='Shop.Theme.Checkout'}</div>
           <meta itemprop="priceCurrency" content="{$currency.iso_code}">
+
+          {* Stock availability label *}
+          {if $product.availability == 'available' || $product.availability == 'last_remaining_items'}
+            <div class="ot-stock-label ot-stock-label--in" style="margin-top:var(--space-2)">
+              <span class="ot-stock-label__dot" aria-hidden="true"></span>
+              {l s='Na zalogi' d='Shop.Theme.Catalog'}
+            </div>
+          {else}
+            <div class="ot-stock-label ot-stock-label--out" style="margin-top:var(--space-2)">
+              <span class="ot-stock-label__dot" aria-hidden="true"></span>
+              {l s='Ni na zalogi' d='Shop.Theme.Catalog'}
+            </div>
+          {/if}
         </div>
 
-        {* Condition explanation box *}
+        {* Condition explanation box — reuses $grade_class/$grade_label computed
+           above in the badges row for two-tier refurbished grading. *}
         {if isset($product.condition) && $product.condition}
           {assign var='cond' value=$product.condition|lower}
-          <div class="ot-condition-box ot-condition-box--{if $cond == 'new' || $cond == 'novo'}novo{elseif $cond == 'refurbished' || $cond == 'obnovljeno'}obnovljeno{elseif $cond == 'used' || $cond == 'rabljeno'}rabljeno{else}outlet{/if}">
+          {assign var='box_class' value='outlet'}
+          {if $cond == 'new' || $cond == 'novo'}
+            {assign var='box_class' value='novo'}
+          {elseif $cond == 'refurbished' || $cond == 'obnovljeno'}
+            {assign var='box_class' value=$grade_class|default:'obnovljeno'}
+          {elseif $cond == 'used' || $cond == 'rabljeno'}
+            {assign var='box_class' value='rabljeno'}
+          {/if}
+          <div class="ot-condition-box ot-condition-box--{$box_class}">
             <div class="ot-condition-box__icon">
               {if $cond == 'new' || $cond == 'novo'}
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
@@ -174,11 +217,20 @@
             </div>
             <div>
               <div class="ot-condition-box__title">
-                {if $cond == 'new' || $cond == 'novo'}Originalno novo{elseif $cond == 'refurbished' || $cond == 'obnovljeno'}Profesionalno obnovljeno{elseif $cond == 'used' || $cond == 'rabljeno'}Rabljeno — preverjena oprema{else}Outlet — novo po znižani ceni{/if}
+                {if $cond == 'new' || $cond == 'novo'}Originalno novo
+                {elseif $cond == 'refurbished' || $cond == 'obnovljeno'}
+                  {if $box_class == 'odlicno'}Obnovljeno — odlično stanje
+                  {elseif $box_class == 'dobro'}Obnovljeno — dobro stanje
+                  {else}Profesionalno obnovljeno{/if}
+                {elseif $cond == 'used' || $cond == 'rabljeno'}Rabljeno — preverjena oprema
+                {else}Outlet — novo po znižani ceni{/if}
               </div>
               <p class="ot-condition-box__desc">
                 {if $cond == 'new' || $cond == 'novo'}Originalna embalaža, nikoli ni bil v uporabi. Polna garancija proizvajalca.
-                {elseif $cond == 'refurbished' || $cond == 'obnovljeno'}Preverjen, očiščen in testiran s strani naših tehnikov. Garancija TEAL d.o.o.
+                {elseif $cond == 'refurbished' || $cond == 'obnovljeno'}
+                  {if $box_class == 'odlicno'}Kot novo — minimalni znaki uporabe, popolnoma testirano. 12 mesecev garancije TEAL d.o.o.
+                  {elseif $box_class == 'dobro'}Vidni manjši znaki uporabe, popolnoma delujoče in testirano. 12 mesecev garancije TEAL d.o.o.
+                  {else}Preverjen, očiščen in testiran s strani naših tehnikov. 12 mesecev garancije TEAL d.o.o.{/if}
                 {elseif $cond == 'used' || $cond == 'rabljeno'}Deluje brezhibno. Vidni znaki staranja so možni. Vizualno preverjen pred prodajo.
                 {else}Novo blago, ki ni bilo prodano v redni prodaji. Polna garancija, znižana cena.{/if}
               </p>

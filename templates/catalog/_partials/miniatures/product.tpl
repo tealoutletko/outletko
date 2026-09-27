@@ -6,7 +6,11 @@
  * Variables: $product (from ProductLazyArray)
  **}
 
-{* ---- Determine condition ---- *}
+{* ---- Determine condition ----
+   "Obnovljeno" (refurbished) is shown as a two-tier grade — "Obnovljeno - odlično"
+   (teal) or "Obnovljeno - dobro" (orange) — read from a product Feature named
+   "Razred" / "Ocena" / "Grade" (configure in PS9 Admin → Katalog → Funkcije).
+   Falls back to a generic blue "Obnovljeno" badge if no grade feature is set. *}
 {assign var='condition_key' value=$product.condition|lower}
 {assign var='condition_label' value=''}
 {assign var='condition_class' value=''}
@@ -19,6 +23,21 @@
 {elseif $condition_key == 'refurbished' || $condition_key == 'obnovljeno'}
   {assign var='condition_label' value='Obnovljeno'}
   {assign var='condition_class' value='obnovljeno'}
+  {if isset($product.features) && $product.features|@count > 0}
+    {foreach from=$product.features item='gradefeat'}
+      {assign var='grade_name' value=$gradefeat.name|lower}
+      {assign var='grade_val' value=$gradefeat.value|lower}
+      {if $grade_name|strstr:'razred' || $grade_name|strstr:'ocena' || $grade_name|strstr:'grade'}
+        {if $grade_val|strstr:'odlič' || $grade_val == 'a' || $grade_val == 'a+'}
+          {assign var='condition_label' value='Obnovljeno - odlično'}
+          {assign var='condition_class' value='odlicno'}
+        {elseif $grade_val|strstr:'dobro' || $grade_val == 'b'}
+          {assign var='condition_label' value='Obnovljeno - dobro'}
+          {assign var='condition_class' value='dobro'}
+        {/if}
+      {/if}
+    {/foreach}
+  {/if}
 {elseif $condition_key == 'outlet' || $condition_key == 'neprodano'}
   {assign var='condition_label' value='Outlet'}
   {assign var='condition_class' value='outlet'}
@@ -118,19 +137,21 @@
       {$product.name|escape:'html':'UTF-8'}
     </a>
 
-    {* Key specs (from product features) *}
-    {if isset($product.features) && $product.features|@count > 0}
-      <div class="ot-product-card__specs">
+    {* Key specs (Procesor / RAM / SSD) — from product Features, in the order
+       configured in PS9 Admin → Katalog → Funkcije. Reserved space keeps
+       card heights aligned even when a product has fewer specs. *}
+    <div class="ot-product-card__specs">
+      {if isset($product.features) && $product.features|@count > 0}
         {foreach from=$product.features item='feature' name='feat'}
           {if $smarty.foreach.feat.iteration <= 3}
             <div class="ot-product-card__spec-row">
-              <span class="ot-product-card__spec-key">{$feature.name|truncate:12:'.'|escape:'html':'UTF-8'}</span>
+              <span class="ot-product-card__spec-key">{$feature.name|truncate:14:'.'|escape:'html':'UTF-8'}</span>
               <span class="ot-product-card__spec-val">{$feature.value|escape:'html':'UTF-8'}</span>
             </div>
           {/if}
         {/foreach}
-      </div>
-    {/if}
+      {/if}
+    </div>
 
     {* Price + ATC *}
     <div class="ot-product-card__price-block">
@@ -147,7 +168,20 @@
         </span>
         <span class="ot-product-card__price-tax">{l s='z DDV' d='Shop.Theme.Checkout'}</span>
         <meta itemprop="priceCurrency" content="{$currency.iso_code}">
-        <meta itemprop="availability" content="{if $product.availability == 'available'}https://schema.org/InStock{else}https://schema.org/OutOfStock{/if}">
+        <meta itemprop="availability" content="{if $product.availability == 'available' || $product.availability == 'last_remaining_items'}https://schema.org/InStock{else}https://schema.org/OutOfStock{/if}">
+
+        {* Stock availability label *}
+        {if $product.availability == 'available' || $product.availability == 'last_remaining_items'}
+          <span class="ot-stock-label ot-stock-label--in ot-product-card__stock">
+            <span class="ot-stock-label__dot" aria-hidden="true"></span>
+            {l s='Na zalogi' d='Shop.Theme.Catalog'}
+          </span>
+        {else}
+          <span class="ot-stock-label ot-stock-label--out ot-product-card__stock">
+            <span class="ot-stock-label__dot" aria-hidden="true"></span>
+            {l s='Ni na zalogi' d='Shop.Theme.Catalog'}
+          </span>
+        {/if}
       </div>
 
       {* Add to cart or View button *}

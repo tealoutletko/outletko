@@ -302,6 +302,16 @@
   border-color: var(--badge-rabljeno-border);
 }
 
+.ot-condition-box--odlicno {
+  background: var(--badge-odlicno-bg);
+  border-color: var(--badge-odlicno-border);
+}
+
+.ot-condition-box--dobro {
+  background: var(--badge-dobro-bg);
+  border-color: var(--badge-dobro-border);
+}
+
 .ot-condition-box__icon {
   width: 36px;
   height: 36px;
@@ -325,6 +335,8 @@
 .ot-condition-box--outlet .ot-condition-box__title { color: var(--badge-outlet-text); }
 .ot-condition-box--obnovljeno .ot-condition-box__title { color: var(--badge-obnovljeno-text); }
 .ot-condition-box--rabljeno .ot-condition-box__title { color: var(--badge-rabljeno-text); }
+.ot-condition-box--odlicno .ot-condition-box__title { color: var(--badge-odlicno-text); }
+.ot-condition-box--dobro .ot-condition-box__title { color: var(--badge-dobro-text); }
 
 .ot-condition-box__desc {
   font-size: var(--text-xs);

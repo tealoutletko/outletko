@@ -4,12 +4,13 @@
  * ================================================= */
 
 /* =========================================================
-   TOP ANNOUNCEMENT BAR
+   TOP USP BAR — dark/contrast strip above the header with the
+   store's key purchase benefits (free shipping, warranty, etc.)
    ========================================================= */
 .ot-topbar {
-  height: var(--topbar-h);
-  background: var(--ot-primary-dark);
-  color: rgba(255, 255, 255, 0.9);
+  min-height: var(--topbar-h);
+  background: var(--ot-text-primary);
+  color: rgba(255, 255, 255, 0.92);
   font-size: var(--text-xs);
   font-weight: var(--fw-medium);
   display: flex;
@@ -19,51 +20,70 @@
 }
 
 .ot-topbar .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
+  width: 100%;
 }
 
-.ot-topbar__message {
+.ot-topbar__usp-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  list-style: none;
+  margin: 0;
+  padding: var(--space-2) 0;
+  flex-wrap: wrap;
+}
+
+.ot-topbar__usp-item {
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  flex: 1;
+  white-space: nowrap;
+  position: relative;
 }
 
-.ot-topbar__message svg { opacity: 0.8; }
-
-.ot-topbar__links {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
+.ot-topbar__usp-item svg {
   flex-shrink: 0;
+  color: var(--ot-primary-light);
+  opacity: 0.95;
 }
 
-.ot-topbar__links a {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: var(--text-xs);
-  transition: color var(--duration-150);
-}
-
-.ot-topbar__links a:hover {
-  color: #fff;
-  text-decoration: none;
-}
-
-.ot-topbar__links .divider {
+/* Pipe separator between items (desktop) */
+.ot-topbar__usp-item + .ot-topbar__usp-item::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--space-8) / -2 - 1px);
+  top: 50%;
+  transform: translateY(-50%);
   width: 1px;
-  height: 12px;
-  background: rgba(255,255,255,0.25);
+  height: 14px;
+  background: rgba(255, 255, 255, 0.22);
 }
 
+@media (max-width: 1023px) {
+  .ot-topbar__usp-list { gap: var(--space-5); }
+  .ot-topbar__usp-item + .ot-topbar__usp-item::before { left: calc(var(--space-5) / -2 - 1px); }
+}
+
+/* ---- Mobile: horizontal auto-scrolling strip, one item visible at a time ---- */
 @media (max-width: 767px) {
-  .ot-topbar__links { display: none; }
-  .ot-topbar__message {
-    justify-content: center;
+  .ot-topbar { min-height: 36px; }
+  .ot-topbar .container { padding-inline: 0; }
+  .ot-topbar__usp-list {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding: var(--space-2) var(--space-4);
+    gap: var(--space-6);
+  }
+  .ot-topbar__usp-list::-webkit-scrollbar { display: none; }
+  .ot-topbar__usp-item {
+    scroll-snap-align: start;
     font-size: var(--text-2xs);
   }
+  .ot-topbar__usp-item + .ot-topbar__usp-item::before { display: none; }
 }
 
 /* =========================================================

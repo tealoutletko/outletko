@@ -7,21 +7,15 @@
  * Inspired by modern Lenovo/Dell ecommerce + teal.publishwall.com
  * ================================================================ */
 
-/* ---- Google Fonts (self-hosted) ---- */
+/* ---- Google Fonts (self-hosted) ----
+   Single family (Inter) for both body and display/heading text —
+   modern, clean sans-serif matching the reference design. */
 @font-face {
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 300 700;
+  font-weight: 300 800;
   font-display: swap;
   src: url('../fonts/inter-variable.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Outfit';
-  font-style: normal;
-  font-weight: 400 800;
-  font-display: swap;
-  src: url('../fonts/outfit-variable.woff2') format('woff2');
 }
 
 /* =========================================================
@@ -29,11 +23,13 @@
    ========================================================= */
 :root {
   /* ---- Brand & Accent ---- */
-  --ot-primary:           #0066CC;   /* Lenovo/Dell corporate blue */
+  --ot-primary:           #0066CC;   /* Professional blue/teal — links & buttons */
   --ot-primary-dark:      #004C99;
   --ot-primary-light:     #1a80e0;
   --ot-primary-subtle:    #e8f2fc;
   --ot-primary-subtle-2:  #d1e9f8;
+  --ot-teal:              #0d9488;   /* Teal accent — "Obnovljeno - odlično" grade */
+  --ot-teal-dark:         #0f766e;
   --ot-accent:            #e31837;   /* Outlet red accent */
   --ot-success:           #0d6e38;
   --ot-warning:           #b45309;
@@ -63,13 +59,13 @@
   --ot-text-link-hover:   #004C99;
 
   /* ---- Condition Badge Colors ---- */
-  --badge-novo-bg:         #d1fae5;
+  --badge-novo-bg:         #d1fae5;   /* Novo — zelena */
   --badge-novo-text:       #065f46;
   --badge-novo-border:     #6ee7b7;
   --badge-outlet-bg:       #fef3c7;
   --badge-outlet-text:     #92400e;
   --badge-outlet-border:   #fcd34d;
-  --badge-obnovljeno-bg:   #dbeafe;
+  --badge-obnovljeno-bg:   #dbeafe;   /* Generic "Obnovljeno" fallback — modra */
   --badge-obnovljeno-text: #1e3a8a;
   --badge-obnovljeno-border: #93c5fd;
   --badge-rabljeno-bg:     #f3f4f6;
@@ -80,9 +76,28 @@
   --badge-obnovljeno-solid:#2563eb;
   --badge-rabljeno-solid:  #6b7280;
 
-  /* ---- Typography ---- */
-  --font-display:  'Outfit', ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-body:     'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  /* ---- Refurbished grade badges (two-tier "Obnovljeno") ---- */
+  --badge-odlicno-bg:      #ccfbf1;   /* Obnovljeno - odlično — modra/teal */
+  --badge-odlicno-text:    #115e59;
+  --badge-odlicno-border:  #5eead4;
+  --badge-odlicno-solid:   #0d9488;
+  --badge-dobro-bg:        #ffedd5;   /* Obnovljeno - dobro — oranžna */
+  --badge-dobro-text:      #9a3412;
+  --badge-dobro-border:    #fdba74;
+  --badge-dobro-solid:     #ea580c;
+
+  /* ---- Stock availability ---- */
+  --ot-instock-bg:         #d1fae5;
+  --ot-instock-text:       #065f46;
+  --ot-instock-dot:        #059669;
+  --ot-outofstock-bg:      #f3f4f6;
+  --ot-outofstock-text:    #6b7280;
+
+  /* ---- Typography ----
+     Single modern sans-serif family (Inter) used for both body copy
+     and headings/display text, falling back to the OS system font. */
+  --font-display:  'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body:     'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono:     'Cascadia Code', 'Fira Code', ui-monospace, 'Courier New', monospace;
 
   /* ---- Font sizes (fluid) ---- */
@@ -229,6 +244,14 @@
     --badge-obnovljeno-text:#bfdbfe;
     --badge-rabljeno-bg:  #1f2937;
     --badge-rabljeno-text:#9ca3af;
+    --badge-odlicno-bg:   #134e4a;
+    --badge-odlicno-text: #5eead4;
+    --badge-dobro-bg:     #431407;
+    --badge-dobro-text:   #fdba74;
+    --ot-instock-bg:      #052e16;
+    --ot-instock-text:    #6ee7b7;
+    --ot-outofstock-bg:   #21262d;
+    --ot-outofstock-text: #8b949e;
   }
 }
 
@@ -259,4 +282,12 @@ html.dark-mode {
   --badge-obnovljeno-text:#bfdbfe;
   --badge-rabljeno-bg:  #1f2937;
   --badge-rabljeno-text:#9ca3af;
+  --badge-odlicno-bg:   #134e4a;
+  --badge-odlicno-text: #5eead4;
+  --badge-dobro-bg:     #431407;
+  --badge-dobro-text:   #fdba74;
+  --ot-instock-bg:      #052e16;
+  --ot-instock-text:    #6ee7b7;
+  --ot-outofstock-bg:   #21262d;
+  --ot-outofstock-text: #8b949e;
 }

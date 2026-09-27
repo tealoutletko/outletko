@@ -46,7 +46,7 @@ TEAL d.o.o. | v1.0.0
        │   │   ├── theme.js
        │   │   ├── search-autocomplete.js
        │   │   └── filter-enhancements.js
-       │   └── fonts/          ← dodaj Inter + Outfit .woff2 datoteke
+       │   └── fonts/          ← dodaj Inter .woff2 datoteko
        └── templates/
            ├── index.tpl
            ├── _partials/
@@ -66,19 +66,15 @@ TEAL d.o.o. | v1.0.0
 
 ## Korak 2 — Namestitev pisav (obvezno)
 
-Tema privzeto naloži **Inter** in **Outfit** iz lokalne poti `assets/fonts/`. Prenesi variabilne pisave:
+Tema uporablja eno samo sodobno sans-serif pisavo — **Inter** (za besedilo in naslove), z sistemsko pisavo (`system-ui`) kot varnostno kopijo. Naloži jo iz lokalne poti `assets/fonts/`:
 
 1. Prenesi `Inter` variable: https://fonts.google.com/specimen/Inter  
    → `Download family` → zapakiraj → vzemi `Inter[wght].woff2`
-2. Prenesi `Outfit` variable: https://fonts.google.com/specimen/Outfit  
-   → `Download family` → zapakiraj → vzemi `Outfit[wght].woff2`
-3. Preimenuj datoteki:
-   - `inter-variable.woff2`
-   - `outfit-variable.woff2`
-4. Naloži v: `/themes/outletko-teal/assets/fonts/`
+2. Preimenuj datoteko: `inter-variable.woff2`
+3. Naloži v: `/themes/outletko-teal/assets/fonts/`
 
 > [!TIP]
-> Alternativno lahko v `assets/css/custom.css` zamenjaj `@font-face` bloke z Google Fonts CDN linki, a to zmanjša performance score.
+> Alternativno lahko v `assets/css/variables.css` zamenjaš `@font-face` blok z Google Fonts CDN linkom, a to zmanjša performance score.
 
 ---
 
