@@ -1,60 +1,64 @@
 /*
- * Outletko Teal — CSS Design Tokens v2.0
- * Clean, white, product-focused — inspired by teal.publishwall.com
+ * Outletko Elits — CSS Design Tokens v2.0
+ * Exact colors from teal.publishwall.com (Tailwind CSS v4.3.1)
  * ================================================================ */
 
 /* ---- Google Fonts ---- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
 
 :root {
-  /* ---- Brand ---- */
-  --ot-primary:          #0066CC;
-  --ot-primary-dark:     #004C99;
-  --ot-primary-light:    #3B8DF2;
+  /* ---- Brand (exact from teal.publishwall.com) ---- */
+  --ot-primary:          #005a9c;
+  --ot-primary-dark:     #004170;
+  --ot-primary-light:    #0070c0;
+  --ot-accent:           #3d9bd6;
 
-  /* ---- Accent (for badges/CTAs) ---- */
-  --ot-accent:           #E53E3E;
+  /* ---- Header / Dark surfaces ---- */
+  --ot-dark:             #1a1a1a;
+  --ot-dark-light:       #2d2d2d;
+
+  /* ---- CTA / Action ---- */
+  --ot-red:              #e2231a;
+  --ot-red-dark:         #c41e17;
+  --ot-green:            #00a651;
   --ot-success:          #059669;
-  --ot-warning:          #D97706;
-  --ot-gold:             #B8860B;
 
-  /* ---- Surfaces (clean white theme) ---- */
-  --ot-bg:               #FFFFFF;
-  --ot-bg-alt:           #F7F8FA;
-  --ot-surface:          #F1F3F5;
-  --ot-surface-raised:   #FFFFFF;
-  --ot-card-bg:          #FFFFFF;
+  /* ---- Surfaces ---- */
+  --ot-bg:               #f9fafb;
+  --ot-bg-alt:           #f3f4f6;
+  --ot-surface:          #f1f3f5;
+  --ot-card-bg:          #ffffff;
 
   /* ---- Borders ---- */
-  --ot-border:           #E2E8F0;
-  --ot-border-light:     #EDF2F7;
+  --ot-border:           #e5e7eb;
+  --ot-border-light:     #f0f0f0;
 
   /* ---- Text ---- */
-  --ot-text-primary:     #1A202C;
-  --ot-text-secondary:   #4A5568;
-  --ot-text-muted:       #A0AEC0;
-  --ot-text-inverse:     #FFFFFF;
+  --ot-text-primary:     #1a202c;
+  --ot-text-secondary:   #4a5568;
+  --ot-text-muted:       #6b7280;
+  --ot-text-inverse:     #ffffff;
 
   /* ---- Condition badges ---- */
-  --badge-novo-bg:        #D1FAE5;
-  --badge-novo-text:      #065F46;
-  --badge-outlet-bg:      #FEF3C7;
-  --badge-outlet-text:    #92400E;
-  --badge-obnovljeno-bg:  #DBEAFE;
-  --badge-obnovljeno-text:#1E3A8A;
-  --badge-rabljeno-bg:    #F3F4F6;
+  --badge-novo-bg:        #d1fae5;
+  --badge-novo-text:      #065f46;
+  --badge-novo-border:    #a7f3d0;
+  --badge-outlet-bg:      #fef3c7;
+  --badge-outlet-text:    #92400e;
+  --badge-outlet-border:  #fde68a;
+  --badge-obnovljeno-bg:  #dbeafe;
+  --badge-obnovljeno-text:#1e3a8a;
+  --badge-obnovljeno-border:#93c5fd;
+  --badge-rabljeno-bg:    #f3f4f6;
   --badge-rabljeno-text:  #374151;
-  --badge-stock-bg:       #ECFDF5;
+  --badge-rabljeno-border:#d1d5db;
+  --badge-stock-bg:       #ecfdf5;
   --badge-stock-text:     #059669;
-  --badge-recommended:    #FEE2E2;
-  --badge-recommended-text:#DC2626;
-  --badge-gold:           #B8860B;
-  --badge-silver:         #6B7280;
-  --badge-bronze:         #B45309;
 
   /* ---- Typography ---- */
   --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   /* ---- Sizes ---- */
   --text-xs:   0.75rem;
