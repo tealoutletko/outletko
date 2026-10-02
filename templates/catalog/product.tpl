@@ -18,30 +18,10 @@
 <div class="ot-product-page">
   <div class="container">
 
-    {* ---- Breadcrumb ---- *}
-    {if isset($breadcrumb.links) && $breadcrumb.links|@count > 1}
-    <nav aria-label="Krušna pot" class="ot-breadcrumb-wrap" style="padding:12px 0 24px">
-      <ol class="ot-breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
-        {foreach from=$breadcrumb.links item='link' name='bc'}
-        <li class="ot-breadcrumb__item"
-            itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          {if !$smarty.foreach.bc.last}
-            <a class="ot-breadcrumb__link" href="{$link.url|escape:'html':'UTF-8'}" itemprop="item">
-              <span itemprop="name">{$link.title|escape:'html':'UTF-8'}</span>
-            </a>
-            <meta itemprop="position" content="{$smarty.foreach.bc.iteration}">
-            <span class="ot-breadcrumb__sep" aria-hidden="true">/</span>
-          {else}
-            <span class="ot-breadcrumb__current" aria-current="page" itemprop="name">
-              {$link.title|escape:'html':'UTF-8'}
-            </span>
-            <meta itemprop="position" content="{$smarty.foreach.bc.iteration}">
-          {/if}
-        </li>
-        {/foreach}
-      </ol>
-    </nav>
-    {/if}
+    {* ---- Breadcrumb — PS9 Hummingbird partial (avoids $link.url array-to-string) ---- *}
+    <div class="ot-breadcrumb-wrap" style="padding:12px 0 24px">
+      {include file='_partials/breadcrumb.tpl' breadcrumb=$breadcrumb}
+    </div>
 
     {* ================================================================
        PRODUCT MAIN: Gallery + Info

@@ -1,13 +1,12 @@
 name: outletko-teal
 display_name: "Outletko Teal - Modern IT Store"
-version: "1.0.0"
+version: "2.0.0"
 author: "TEAL d.o.o."
 email: "info@teal.si"
 url: "https://outletko.si"
-description: "Modern PrestaShop 9 Hummingbird child theme for outletko.si - premium IT hardware ecommerce with Dell/Lenovo inspired design."
+description: "Clean, modern PrestaShop 9 theme for outletko.si — inspired by teal.publishwall.com. Product-focused ecommerce with teal accent, white cards, and grid layout."
 license: "AFL 3.0"
 
-# Inherit everything from Hummingbird (PS9 default theme)
 parent: hummingbird
 
 assets:
@@ -93,9 +92,9 @@ theme_settings:
 
 meta:
   - page: index
-    title: "Outletko.si - Rabljena in obnovljena IT oprema | TEAL d.o.o."
-    description: "Kupite novo, obnovljeno in rabljeno IT opremo po dostopnih cenah. Prenosniki, računalniki, zasloni, tiskalniki in več. TEAL d.o.o., Laško in Celje."
-    keywords: "prenosniki, računalniki, obnovljeni prenosniki, rabljeni računalniki, outlet it oprema, celje, laško"
+    title: "Outletko.si - Nova in obnovljena IT oprema | TEAL d.o.o."
+    description: "Prenosniki, računalniki, zasloni in dodatki vodilnih znamk. Nova in obnovljena oprema z garancijo."
+    keywords: "prenosniki, računalniki, obnovljeni prenosniki, outlet it oprema, teal"
   - page: product
     title: ""
     description: ""
@@ -104,14 +103,6 @@ meta:
     title: ""
     description: ""
     keywords: ""
-  - page: search
-    title: "Iskanje - Outletko.si"
-    description: ""
-    keywords: ""
-  - page: stores
-    title: "Naše trgovine - Laško in Celje | TEAL d.o.o."
-    description: "Obiščite nas v naši fizični trgovini v Laškem ali Celju. Oglejte si IT opremo, prevzemite naročilo ali se posvetujte z našimi strokovnjaki."
-    keywords: "outletko trgovina laško celje teal"
 
 layouts:
   index: layout-full-width

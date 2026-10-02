@@ -41,8 +41,8 @@ const SearchAutocomplete = (() => {
   };
 
   /* ---- Helpers ---- */
-  const $ = (sel, ctx = document) => ctx.querySelector(sel);
-  const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
+  const ot$ = (sel, ctx = document) => ctx.querySelector(sel);
+  const ot$$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
   function getCategoryIcon(name = '') {
     const key = name.toLowerCase();
@@ -209,7 +209,7 @@ const SearchAutocomplete = (() => {
      KEYBOARD NAVIGATION
      ========================================================= */
   function updateActiveItem(dropdown) {
-    allItems = $$('[data-ot-item]', dropdown);
+    allItems = ot$$('[data-ot-item]', dropdown);
     allItems.forEach((item, i) => {
       item.classList.toggle('is-highlighted', i === activeIdx);
       if (i === activeIdx) item.scrollIntoView({ block: 'nearest' });
@@ -254,10 +254,10 @@ const SearchAutocomplete = (() => {
      INITIALISE
      ========================================================= */
   function init() {
-    const form     = $('[data-ot-search-form]');
-    const input    = $('[data-ot-search-input]');
-    const dropdown = $('[data-ot-search-dropdown]');
-    const clearBtn = $('[data-ot-search-clear]');
+    const form     = ot$('[data-ot-search-form]');
+    const input    = ot$('[data-ot-search-input]');
+    const dropdown = ot$('[data-ot-search-dropdown]');
+    const clearBtn = ot$('[data-ot-search-clear]');
 
     if (!input || !dropdown) return;
 
