@@ -123,20 +123,6 @@ theme_settings:
   layouts:
     category: layout-left-column
 
-meta:
-  - page: index
-    title: "Outletko.si - Nova in obnovljena IT oprema | TEAL d.o.o."
-    description: "Prenosniki, računalniki, zasloni in dodatki vodilnih znamk. Nova in obnovljena oprema z garancijo."
-    keywords: "prenosniki, računalniki, obnovljeni prenosniki, outlet it oprema, teal"
-  - page: product
-    title: ""
-    description: ""
-    keywords: ""
-  - page: category
-    title: ""
-    description: ""
-    keywords: ""
-
 layouts:
   index: layout-full-width
   product: layout-full-width
