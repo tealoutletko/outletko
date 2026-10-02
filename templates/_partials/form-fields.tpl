@@ -1,0 +1,1 @@
+{if $form_fields}{foreach from=$form_fields item=field}{include file="form-fields/"|cat:$field|cat:'.tpl'}{/foreach}{/if}

@@ -1,0 +1,1 @@
+{include file="_partials/listing/product-list.tpl" data=$data}

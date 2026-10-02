@@ -1,0 +1,1 @@
+{block name="cms_content"}{$cms.content nofilter}{/block}

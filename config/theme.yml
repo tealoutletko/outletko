@@ -4,7 +4,7 @@ version: "2.0.0"
 author:
   name: "TEAL d.o.o."
   email: "info@teal.si"
-  website: "https://outletko.si"
+  url: "https://outletko.si"
 description: "Clean, modern PrestaShop 9 theme for outletko.si — inspired by teal.publishwall.com. Product-focused ecommerce with teal accent, white cards, and grid layout."
 license: "AFL 3.0"
 
@@ -100,6 +100,25 @@ global_settings:
   configuration:
     PS_QUICK_VIEW: 0
     PS_PRODUCTS_PER_PAGE: 12
+  image_types:
+    cart_default:
+      width: 25
+      height: 25
+    small_default:
+      width: 98
+      height: 98
+    medium_default:
+      width: 425
+      height: 425
+    home_default:
+      width: 250
+      height: 250
+    large_default:
+      width: 800
+      height: 800
+    category_default:
+      width: 485
+      height: 485
 
 theme_settings:
   default_layout: layout-full-width
