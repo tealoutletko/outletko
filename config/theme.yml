@@ -12,16 +12,18 @@ parent: hummingbird
 
 meta:
   compatibility:
-    from: "9.1.0"
-    to: "9.99.99"
+    from: 9.1.0
+    to: ~9.1.0
   available_layouts:
-    - layout-full-width
-    - layout-left-column
-    - layout-right-column
-    - layout-empty
-  theme_info:
-    screenshots:
-      - preview.jpg
+    layout-full-width:
+      name: Full Width
+      description: No side columns, ideal for distraction-free pages.
+    layout-left-column:
+      name: Two Columns, small left column
+      description: Two columns with a small left column
+    layout-right-column:
+      name: Two Columns, small right column
+      description: Two columns with a small right column
 
 assets:
   use_parent_assets: true
@@ -98,25 +100,6 @@ global_settings:
   configuration:
     PS_QUICK_VIEW: 0
     PS_PRODUCTS_PER_PAGE: 12
-  image_types:
-    cart_default:
-      width: 25
-      height: 25
-    small_default:
-      width: 98
-      height: 98
-    medium_default:
-      width: 425
-      height: 425
-    home_default:
-      width: 250
-      height: 250
-    large_default:
-      width: 800
-      height: 800
-    category_default:
-      width: 485
-      height: 485
 
 theme_settings:
   default_layout: layout-full-width
